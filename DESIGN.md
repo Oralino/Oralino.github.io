@@ -200,7 +200,7 @@ row is a link; hover `bg-surface`. Reads like a transcript, deliberately unlike 
 **Project detail page**: ghost back link "← All projects". Header: meta line (course badge + course name,
 or "Personal project"), h1, lead summary `max-w-2xl`, actions (primary = release/download if it exists,
 else "View repository"; secondary = repo when a release is primary). Spec aside (spec list): Type, Course,
-Stack (chips), Repository (mono), Release. Main: media, then "Overview" prose, then "Features" as a list
+Stack (chips), Repository (mono), Release. Main: media (gallery rules in Imagery), then "Overview" prose, then "Features" as a list
 with muted en-dash markers, `max-w-2xl`. Private repos show "Repository: private" in muted text, no link.
 
 **Footer**: `border-t border-border py-10`, one row (stacks below `sm`): left "Oralino" `text-sm
@@ -221,14 +221,26 @@ font-semibold` + mono `text-xs text-muted` "oralino.github.io"; right GitHub gho
 - **Screenshots** (desktop apps): capture the app window only, including its title bar, no wallpaper, no
   OS shadow, same theme across a project where possible. Web apps: browser viewport at 1440×900 (16:10),
   no browser chrome. Export PNG/WebP at 2x, max 2000px wide. Check every capture for personal details
-  (usernames in paths, account names, emails, taskbar) and crop or blur them.
+  (usernames in paths, account names, emails, taskbar) and crop or blur them. Windows 11 captures keep
+  their own title bar and corners; console windows keep their default colours (content, not styling),
+  cropped to the output that matters.
 - **Plots** (matplotlib ROC curves, confusion matrices): keep their white background; never filter or
   recolour them (it changes the data encoding). They sit in the `bg-raised` frame so white reads as a
   figure, not a glare.
-- **Detail page media**: `figure` with the image at natural aspect, `w-full h-auto border border-border
-  rounded-lg`, explicit `width`/`height`, first image eager, rest `loading="lazy"`. Caption
-  `text-xs text-muted` below. Extra images: 1 col, `md:grid-cols-2 gap-4`. Each image links to the
-  full-size file; no carousel or lightbox.
+- **Detail page media** (gallery `grid gap-4 md:grid-cols-2`, 1 col below `md`). Every row is full:
+  - Lead row: image 1 spans both columns, unless images 1 and 2 are both portrait (height > width), in
+    which case they share the row.
+  - Remaining images pair up; if one is left alone in the last row it spans both columns (never a lone
+    half-width figure, never a centred half-width one).
+  - Each `figure` is `flex flex-col gap-2`; its link is the media panel `flex flex-1 items-center
+    rounded-lg bg-raised p-4 sm:p-6`, so paired panels match height and images centre vertically.
+  - Image: natural aspect, centred, `h-auto w-full rounded-md border border-border`, explicit
+    `width`/`height`, never rendered wider than its file width (no upscaling). Height cap: **640px** in
+    the lead row (panel 688px fits the 704px below the header at 1366×768), **384px** elsewhere so
+    secondary shots never outweigh the lead. Implement the cap as a per-image `max-width`
+    (`min(width, width × cap / height)`), not `max-h` + `w-auto`, so space is reserved before load.
+  - Lead-row images eager, rest `loading="lazy"`. Caption `text-xs text-muted` below the panel. Each
+    image links to the full-size file; no carousel or lightbox.
 - Alt text states what the image shows ("ROC curves: Random Forest AUC vs Fisher LDA"), not "screenshot".
 - **Favicon**: SVG, 32×32 `rounded-md` square in `accent` with "O" in `accent-fg`, JetBrains Mono 500
   (its squared-oval O reads as a mark, not a plain letter); plus a 180px PNG apple-touch icon.

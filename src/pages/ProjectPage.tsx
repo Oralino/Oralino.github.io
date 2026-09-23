@@ -12,6 +12,11 @@ import NotFoundPage from './NotFoundPage.tsx'
 
 const inlineLink = 'link-inline focus-ring'
 
+// Gallery height caps in CSS px (DESIGN.md → Imagery): the first row fits a laptop viewport below the
+// header; later images never outweigh the lead.
+const LEAD_MAX_HEIGHT = 640
+const REST_MAX_HEIGHT = 384
+
 export default function ProjectPage() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
@@ -23,11 +28,15 @@ export default function ProjectPage() {
   const courseName = project.course ? courseNames[project.course] : undefined
   const images = project.images ?? []
   const features = project.features ?? []
-  // The lead image spans both gallery columns, except when it and the next image are both
-  // portrait (phone screens), which read better side by side.
+  // Gallery rows (DESIGN.md → Imagery): the lead image spans both columns, unless it and the next
+  // image are both portrait (phone screens), which pair up. A lone image in the last row spans too,
+  // so every row is flush.
   const isPortrait = (i: number) =>
     images[i] !== undefined && images[i].height > images[i].width
-  const leadSpans = !(isPortrait(0) && isPortrait(1))
+  const leadCount = isPortrait(0) && isPortrait(1) ? 2 : 1
+  const loneLast = (images.length - leadCount) % 2 === 1
+  const spans = (i: number) =>
+    (i === 0 && leadCount === 1) || (loneLast && i === images.length - 1)
   const hasBody =
     images.length > 0 || Boolean(project.overview) || features.length > 0
 
@@ -144,22 +153,39 @@ export default function ProjectPage() {
                 {images.map((image, index) => (
                   <figure
                     key={image.src}
-                    className={`flex flex-col gap-2 ${index === 0 && leadSpans ? 'md:col-span-2' : ''}`}
+                    className={`flex flex-col gap-2 ${spans(index) ? 'md:col-span-2' : ''}`}
                   >
                     <a
                       href={image.src}
                       target="_blank"
                       rel="noreferrer"
-                      className="block rounded-lg bg-raised p-4 focus-ring sm:p-6"
+                      className="flex flex-1 items-center rounded-lg bg-raised p-4 focus-ring sm:p-6"
                     >
                       <img
                         src={image.src}
                         width={image.width}
                         height={image.height}
                         alt={image.alt}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        className="mx-auto h-auto max-h-192 w-auto max-w-full rounded-md border border-border"
+                        loading={index < leadCount ? 'eager' : 'lazy'}
+                        // Definite width so the attributes reserve space before load; the height cap
+                        // becomes a per-image max-width (never upscaled past the file's own width).
+                        style={{
+                          maxWidth: Math.min(
+                            image.width,
+                            Math.round(
+                              (image.width *
+                                (index < leadCount
+                                  ? LEAD_MAX_HEIGHT
+                                  : REST_MAX_HEIGHT)) /
+                                image.height,
+                            ),
+                          ),
+                        }}
+                        className="mx-auto h-auto w-full rounded-md border border-border"
                       />
+                      <span className="sr-only">
+                        (opens full size in a new tab)
+                      </span>
                     </a>
                     {image.caption && (
                       <figcaption className="text-xs text-muted">
