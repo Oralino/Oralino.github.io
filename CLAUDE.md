@@ -97,7 +97,8 @@ src/
 ├── assets/projects/<slug>/  # project images, imported so Vite hashes/optimizes them
 ├── hooks/                # custom hooks, only once one is needed (e.g. theme)
 └── lib/                  # small pure helpers, only once one is needed
-public/                   # files served as-is (favicon, social preview image, resume PDF)
+public/                   # files served as-is (favicon, social preview image)
+private/                  # git-ignored, never served: owner's resume, kept for reference only
 ```
 
 - Keep project content as **data**, not hard-coded JSX. `src/data/projects.ts` is typed by
@@ -138,3 +139,5 @@ public/                   # files served as-is (favicon, social preview image, r
 - Support light and dark themes.
 - Don't add dependencies without a clear reason.
 - Never commit secrets; none of the linked projects' `config.yaml` / `.env` / `config.js` files belong here.
+- The site shows projects only: no real name, email, phone, location, work history or resume, in the
+  site or in any committed file (see `CONTENT.md` → About).

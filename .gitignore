@@ -13,6 +13,9 @@ dist-ssr/
 .env.*
 !.env.example
 
+# Personal documents kept locally for reference only (resume). Never committed or served
+/private/
+
 # Local Claude Code settings (agents in .claude/agents/ ARE committed)
 .claude/settings.local.json
 

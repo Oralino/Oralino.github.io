@@ -5,16 +5,13 @@ Owner-only items are marked **(owner)**.
 
 ## Current
 
-- [ ] **(owner)** Fill in the About section of `CONTENT.md`: display name, one-line intro, program and
-      graduation year, short bio, public email, LinkedIn, and whether to include a resume PDF
+- [ ] **(owner)** Write a project-focused tagline (`CONTENT.md` → About)
 - [ ] **(owner)** Decide whether private coursework (Landmarks, Drug Info App, Dining Philosophers,
       4AI3 Assignments) appears on the site without repo links, or is left out
 - [ ] **(owner)** Decide whether the job search agents go on GitHub / the site
 
 ## Next
 
-- [ ] Design phase: `design-advisor` proposes direction; fill in `DESIGN.md` (personality, layout,
-      typography, color, spacing, components, motion, imagery); owner approves
 - [ ] Define design tokens in `src/index.css` (`@theme`) from the approved `DESIGN.md`
 - [ ] Root layout (header, footer, theme toggle) in `src/components/layout/`
 - [ ] Home page sections in `src/components/sections/`
@@ -32,6 +29,9 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] Design phase: `DESIGN.md` drafted by design-advisor (adapted from Mono Deploy), approved by owner
+- [x] Site scope set to projects only (no personal details); resume kept locally in git-ignored
+      `private/`; extra PowerTray / Video Editor / Steam Backlog details added to `CONTENT.md`
 - [x] Scaffold React 19 + Vite 8 + TypeScript + Tailwind v4 + React Router v8; oxlint + Prettier
 - [x] Typed project data (`src/data/projects.ts`) for all projects with public repos; placeholder pages
       proving routing (home, project detail, 404)

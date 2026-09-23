@@ -16,11 +16,15 @@ Rules:
 
 ## About
 
-- Name: **TODO (owner)**: confirm the display name to use on the site
-- Tagline / one-line intro: **TODO (owner)**
-- Current status: student at **McMaster University**. **TODO (owner)**: program and expected graduation
-- Short bio (2–3 sentences): **TODO (owner)**
-- Contact / links: GitHub https://github.com/Oralino. **TODO (owner)**: email to show publicly, LinkedIn, resume PDF
+The site shows **projects only**. No personal details: no real name, email, phone, location, work
+history, education details or resume. Employers get the resume through the application itself.
+The owner's resume is kept locally in the git-ignored `private/` folder as a reference; never commit,
+serve or quote personal details from it.
+
+- Display name: **Oralino** (GitHub handle; confirmed by owner)
+- Tagline / one-line intro: **TODO (owner)**. Project-focused, e.g. what kinds of things Oralino builds
+  (Windows utilities, game tools, ML projects, web apps); no personal details
+- Links: GitHub https://github.com/Oralino (the only contact link)
 
 ## Personal projects
 
@@ -36,6 +40,19 @@ Source folders live in `C:\Documents\Script\`.
 | TNL API Scrapper | `../TNLPotentialScrapper` | https://github.com/Oralino/TNL-API-Scrapper | Node.js scraper for Throne & Liberty data |
 
 Not yet on GitHub (confirm before including): `Daily Job Search Agent`, `job_search_agent`.
+
+Extra project details from the owner, for the project detail pages (verify against each README before
+publishing):
+- **PowerTray** (repo name PowerTrayOptimizer): multi-threaded; process monitoring with psutil; switches
+  plans via `powercfg`; drag-and-drop executable management, Windows startup integration, real-time tray
+  status; Win32 API icon extraction; Steam appmanifest parsing to launch installed Steam games by app ID
+- **Simple Video Editor**: timeline preview, resolution scaling, asynchronous processing with progress
+  tracking and cancellation cleanup; multi-track audio mixing and stream passthrough; NVIDIA NVENC /
+  AMD AMF / Intel QSV encoding; YouTube fetching via yt-dlp; dependency validation for VLC and FFmpeg
+- **Steam Backlog Manager** (4WP3): Node.js + Express MVC, SQLite, Mustache.js + Bootstrap templates;
+  tracks playtime and completion state, priority badges, backend validation
+
+These three are candidates for featured placement on the home page.
 
 ## Coursework (McMaster University)
 
