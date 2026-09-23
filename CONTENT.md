@@ -177,11 +177,10 @@ In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at
   Match Tracker (2)
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
-  longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab,
-  pending owner approval)
+  longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)
 - Plots: AI Game Recommender, MAGIC Gamma Classifier, LoL Win Predictor (listed above)
 - TNL API Scrapper: no image by owner decision (the tracker site needs a login to return data)
 
-Captured screenshots were also added to the READMEs of 4CC3-Parallel-Name-Sort, 4SA3-Project1 and
-4WP3-Assignment2. Before adding any screenshot, check it for personal details (usernames, file paths,
-location, account names) and get owner approval.
+Captured screenshots were also added to the READMEs of 4CC3-Parallel-Name-Sort, 4SA3-Project1,
+4WP3-Assignment2 and TL-Stat-Calculator. Before adding any screenshot, check it for personal details
+(usernames, file paths, location, account names) and get owner approval.

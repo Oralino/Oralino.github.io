@@ -19,6 +19,7 @@ import steamAdd from '../assets/projects/steam-backlog-manager/add-game.webp'
 import steamDetails from '../assets/projects/steam-backlog-manager/game-details.webp'
 import steamLibrary from '../assets/projects/steam-backlog-manager/library.webp'
 import marketplaceTracker from '../assets/projects/tl-marketplace-trackers/potential-tracker.webp'
+import tlStatDefVsCrit from '../assets/projects/tl-stat-calculator/def-vs-crit.webp'
 
 // Mirrors CONTENT.md. Update CONTENT.md first, then this file.
 // Private repos are intentionally not listed yet (see TASKS.md).
@@ -87,6 +88,15 @@ export const projects: Project[] = [
       'Defense changes shown as actual incoming damage reduction',
       'Option A vs Option B loadout comparison against incoming critical hits',
       'Status effect and crowd control hit and miss probabilities',
+    ],
+    images: [
+      {
+        src: tlStatDefVsCrit,
+        width: 1042,
+        height: 579,
+        alt: 'Def vs Crit Res tab comparing two loadouts: 3000 Defense with 20% Crit Res takes 5000.0, 2400 Defense with 35% Crit Res takes 5010.9, verdict Option A saves 10.9 more HP',
+        caption: 'Comparing two gear loadouts against a critical hit',
+      },
     ],
   },
   {
