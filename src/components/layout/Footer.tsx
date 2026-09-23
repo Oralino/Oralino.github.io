@@ -16,7 +16,7 @@ export default function Footer() {
             href={site.githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 self-start rounded-md text-label font-medium text-muted transition-colors duration-150 ease-out hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:self-auto"
+            className="inline-flex items-center gap-2 self-start link-ghost text-label font-medium focus-ring sm:self-auto"
           >
             <Icon name="github" />
             GitHub

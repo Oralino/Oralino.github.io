@@ -12,12 +12,10 @@ Owner-only items are marked **(owner)**.
 
 ## Next
 
-- [ ] Define design tokens in `src/index.css` (`@theme`) from the approved `DESIGN.md`
-- [ ] Root layout (header, footer, theme toggle) in `src/components/layout/`
-- [ ] Home page sections in `src/components/sections/`
-- [ ] Project detail page (replace placeholder `ProjectPage`)
-- [ ] Collect screenshots (see `CONTENT.md` → Screenshots and media) into `src/assets/projects/<slug>/`
-- [ ] Favicon, social preview image, page titles/meta descriptions per route
+- [ ] Overview prose for each project detail page (DESIGN.md → Project detail page), pulled from each
+      repo's README into `CONTENT.md`, then an `overview` field in `projects.ts`
+- [ ] Screenshots for the remaining projects (see `CONTENT.md` → Screenshots and media)
+- [ ] Social preview image and apple-touch icon (favicon and page titles done)
 - [ ] Accessibility and responsive pass (keyboard, focus, contrast, reduced motion, 320px width)
 
 ## Launch
@@ -29,6 +27,8 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] Site UI built from `DESIGN.md`: tokens, layout, home sections, project detail and 404 pages;
+      screenshots for the featured projects; reviewed (code-reviewer) and QA'd (qa-checker)
 - [x] Design phase: `DESIGN.md` drafted by design-advisor (adapted from Mono Deploy), approved by owner
 - [x] Site scope set to projects only (no personal details); resume kept locally in git-ignored
       `private/`; extra PowerTray / Video Editor / Steam Backlog details added to `CONTENT.md`

@@ -30,6 +30,24 @@
   --text-display--letter-spacing: -0.04em;
 }
 
+/* Shared interaction styles (DESIGN.md → Buttons). */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* Inline link in prose and spec values */
+@utility link-inline {
+  @apply rounded-sm text-accent underline decoration-1 underline-offset-4 hover:decoration-2;
+}
+
+/* Ghost link/button: muted text that brightens on hover */
+@utility link-ghost {
+  @apply rounded-md text-muted transition-colors duration-150 ease-out hover:text-text;
+}
+
 @layer base {
   :root {
     color-scheme: light;

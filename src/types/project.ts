@@ -1,3 +1,5 @@
+import type { CourseCode } from '../data/site.ts'
+
 export type ProjectCategory = 'personal' | 'coursework'
 
 export interface ProjectImage {
@@ -15,7 +17,7 @@ export interface Project {
   name: string
   category: ProjectCategory
   /** McMaster course code, coursework only (e.g. "4AI3") */
-  course?: string
+  course?: CourseCode
   summary: string
   tech: string[]
   /** Only set for public repositories */

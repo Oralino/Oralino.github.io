@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import Icon, { type IconName } from './Icon.tsx'
 
 const base =
-  'inline-flex h-10 items-center gap-2 rounded-md px-4 text-sm font-medium transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
+  'inline-flex h-10 items-center gap-2 rounded-md px-4 text-sm font-medium transition-colors duration-150 ease-out focus-ring'
 
 const variants = {
   primary: 'bg-accent text-accent-fg hover:bg-accent-hover',

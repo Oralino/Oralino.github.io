@@ -9,11 +9,13 @@ export const site = {
 }
 
 // McMaster course names for the codes used in projects.ts.
-export const courseNames: Record<string, string> = {
+export const courseNames = {
   '4AI3': 'Artificial Intelligence',
   '4CC3': 'Concurrent Computing',
   '4DA3': 'Data Analytics',
   '4DM3': 'Data Mining',
   '4SA3': 'Software Architecture',
   '4WP3': 'Web Programming',
-}
+} as const
+
+export type CourseCode = keyof typeof courseNames

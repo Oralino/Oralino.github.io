@@ -10,8 +10,7 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle.ts'
 import { repoName } from '../lib/projects.ts'
 import NotFoundPage from './NotFoundPage.tsx'
 
-const inlineLink =
-  'rounded-sm text-accent underline decoration-1 underline-offset-4 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
+const inlineLink = 'link-inline focus-ring'
 
 export default function ProjectPage() {
   const { slug } = useParams()
@@ -35,7 +34,7 @@ export default function ProjectPage() {
       ? [
           {
             label: 'course',
-            value: `${project.course}${courseName ? ` · ${courseName}` : ''}`,
+            value: `${project.course} · ${courseName}`,
           },
         ]
       : []),
@@ -79,7 +78,7 @@ export default function ProjectPage() {
       <header className="flex flex-col gap-4">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 self-start rounded-md text-label font-medium text-muted transition-colors duration-150 ease-out hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="inline-flex items-center gap-2 self-start link-ghost text-label font-medium focus-ring"
         >
           <Icon name="arrowLeft" />
           All projects
@@ -127,7 +126,7 @@ export default function ProjectPage() {
       <div className="grid gap-10 border-t border-border pt-10 lg:grid-cols-12">
         <aside
           aria-label="Project details"
-          className={`lg:self-start ${hasBody ? 'lg:sticky lg:top-24 lg:order-2 lg:col-span-4' : 'lg:col-span-6'}`}
+          className={`lg:self-start ${hasBody ? 'lg:sticky lg:top-24 lg:order-2 lg:col-span-4' : 'max-w-xl lg:col-span-12'}`}
         >
           <SpecList items={specs} />
         </aside>
@@ -145,7 +144,7 @@ export default function ProjectPage() {
                       href={image.src}
                       target="_blank"
                       rel="noreferrer"
-                      className="block rounded-lg bg-raised p-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:p-6"
+                      className="block rounded-lg bg-raised p-4 focus-ring sm:p-6"
                     >
                       <img
                         src={image.src}

@@ -16,10 +16,7 @@ export default function NotFoundPage() {
           {pathname}
         </code>
       </p>
-      <Link
-        to="/"
-        className="text-sm font-medium text-accent underline decoration-1 underline-offset-4 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-      >
+      <Link to="/" className="link-inline text-sm font-medium focus-ring">
         Back to all projects
       </Link>
     </div>

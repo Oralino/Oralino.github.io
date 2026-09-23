@@ -10,7 +10,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${next} theme`}
-      className="inline-flex size-10 items-center justify-center rounded-md text-muted transition-colors duration-150 ease-out hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="inline-flex size-10 items-center justify-center link-ghost focus-ring"
     >
       <Icon name={next === 'dark' ? 'moon' : 'sun'} />
     </button>

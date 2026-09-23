@@ -46,7 +46,7 @@ export default function Hero() {
                   href={site.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-sm font-mono text-accent underline decoration-1 underline-offset-4 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  className="link-inline font-mono focus-ring"
                 >
                   {site.githubUrl.replace('https://', '')}
                 </a>
