@@ -12,8 +12,6 @@ Owner-only items are marked **(owner)**.
 
 ## Next
 
-- [ ] Overview prose for each project detail page (DESIGN.md → Project detail page), pulled from each
-      repo's README into `CONTENT.md`, then an `overview` field in `projects.ts`
 - [ ] Screenshots for the remaining projects (see `CONTENT.md` → Screenshots and media)
 - [ ] Social preview image and apple-touch icon (favicon and page titles done)
 - [ ] Accessibility and responsive pass (keyboard, focus, contrast, reduced motion, 320px width)
@@ -27,6 +25,9 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] Overview and features for every project detail page, from each repo's README or code
+      (`CONTENT.md` → Project detail copy); READMEs added to TNL-API-Scrapper, 4SA3-Project1,
+      4WP3-Project1 and 4WP3-Assignment2
 - [x] Site UI built from `DESIGN.md`: tokens, layout, home sections, project detail and 404 pages;
       screenshots for the featured projects; reviewed (code-reviewer) and QA'd (qa-checker)
 - [x] Design phase: `DESIGN.md` drafted by design-advisor (adapted from Mono Deploy), approved by owner

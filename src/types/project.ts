@@ -19,6 +19,8 @@ export interface Project {
   /** McMaster course code, coursework only (e.g. "4AI3") */
   course?: CourseCode
   summary: string
+  /** Detail page prose, written from the repo's README (CONTENT.md → Project detail copy) */
+  overview?: string
   tech: string[]
   /** Only set for public repositories */
   repoUrl?: string

@@ -23,7 +23,8 @@ export default function ProjectPage() {
   const courseName = project.course ? courseNames[project.course] : undefined
   const images = project.images ?? []
   const features = project.features ?? []
-  const hasBody = images.length > 0 || features.length > 0
+  const hasBody =
+    images.length > 0 || Boolean(project.overview) || features.length > 0
 
   const specs: SpecItem[] = [
     {
@@ -163,6 +164,21 @@ export default function ProjectPage() {
                   </figure>
                 ))}
               </div>
+            )}
+
+            {project.overview && (
+              <section
+                aria-labelledby="overview-title"
+                className="flex max-w-2xl flex-col gap-4"
+              >
+                <h2
+                  id="overview-title"
+                  className="text-2xl font-semibold tracking-tight"
+                >
+                  Overview
+                </h2>
+                <p className="text-base leading-relaxed">{project.overview}</p>
+              </section>
             )}
 
             {features.length > 0 && (
