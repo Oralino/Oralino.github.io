@@ -23,6 +23,11 @@ export default function ProjectPage() {
   const courseName = project.course ? courseNames[project.course] : undefined
   const images = project.images ?? []
   const features = project.features ?? []
+  // The lead image spans both gallery columns, except when it and the next image are both
+  // portrait (phone screens), which read better side by side.
+  const isPortrait = (i: number) =>
+    images[i] !== undefined && images[i].height > images[i].width
+  const leadSpans = !(isPortrait(0) && isPortrait(1))
   const hasBody =
     images.length > 0 || Boolean(project.overview) || features.length > 0
 
@@ -139,7 +144,7 @@ export default function ProjectPage() {
                 {images.map((image, index) => (
                   <figure
                     key={image.src}
-                    className={`flex flex-col gap-2 ${index === 0 ? 'md:col-span-2' : ''}`}
+                    className={`flex flex-col gap-2 ${index === 0 && leadSpans ? 'md:col-span-2' : ''}`}
                   >
                     <a
                       href={image.src}
@@ -153,7 +158,7 @@ export default function ProjectPage() {
                         height={image.height}
                         alt={image.alt}
                         loading={index === 0 ? 'eager' : 'lazy'}
-                        className="h-auto w-full rounded-md border border-border"
+                        className="mx-auto h-auto max-h-192 w-auto max-w-full rounded-md border border-border"
                       />
                     </a>
                     {image.caption && (

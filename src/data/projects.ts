@@ -1,9 +1,16 @@
 import type { Project } from '../types/project.ts'
 import aiBreakdown from '../assets/projects/ai-game-recommender/breakdown-rift.webp'
 import aiWeights from '../assets/projects/ai-game-recommender/model-weights.webp'
+import engineMain from '../assets/projects/engine-optimizer/main-window.webp'
+import ilvlDashboard from '../assets/projects/ilvl-upgrade-odds/dashboard.webp'
 import lolRoc from '../assets/projects/lol-win-predictor/roc-comparison.webp'
 import magicResults from '../assets/projects/magic-gamma-classifier/results.webp'
 import magicRoc from '../assets/projects/magic-gamma-classifier/roc-comparison.webp'
+import matchDetails from '../assets/projects/match-tracker/match-details.webp'
+import matchHistory from '../assets/projects/match-tracker/match-history.webp'
+import parallelConsole from '../assets/projects/parallel-name-sort/console-output.webp'
+import pokedexNotFound from '../assets/projects/pokedex/not-found.webp'
+import pokedexResult from '../assets/projects/pokedex/search-result.webp'
 import powertrayMain from '../assets/projects/powertray/main-window.webp'
 import powertrayPlans from '../assets/projects/powertray/plan-picker.webp'
 import powertrayTray from '../assets/projects/powertray/tray-menu.webp'
@@ -11,6 +18,7 @@ import videoEditorMain from '../assets/projects/simple-video-editor/main-window.
 import steamAdd from '../assets/projects/steam-backlog-manager/add-game.webp'
 import steamDetails from '../assets/projects/steam-backlog-manager/game-details.webp'
 import steamLibrary from '../assets/projects/steam-backlog-manager/library.webp'
+import marketplaceTracker from '../assets/projects/tl-marketplace-trackers/potential-tracker.webp'
 
 // Mirrors CONTENT.md. Update CONTENT.md first, then this file.
 // Private repos are intentionally not listed yet (see TASKS.md).
@@ -130,6 +138,15 @@ export const projects: Project[] = [
       'Failure-chance chart across iLvl 51–90; click the chart to jump to a level',
       'Updates from the source Google Sheet, with a built-in copy for offline use',
     ],
+    images: [
+      {
+        src: ilvlDashboard,
+        width: 927,
+        height: 1204,
+        alt: 'iLvl Upgrade Odds dashboard for an accessory at iLvl 85: 42.08% upgrade chance, 57.92% failure chance, every possible result, other item types and a failure-chance chart by item level',
+        caption: 'Accessory at iLvl 85, with the failure curve across levels',
+      },
+    ],
   },
   {
     slug: 'tl-marketplace-trackers',
@@ -145,6 +162,15 @@ export const projects: Project[] = [
       'Finds the main dataset by searching the nested JSON for its largest list',
       'PyQt6 desktop tables with live refresh and filtering',
       'FastAPI endpoint backed by a background scrape loop',
+    ],
+    images: [
+      {
+        src: marketplaceTracker,
+        width: 1238,
+        height: 785,
+        alt: 'Potential Tracker window: searchable table of potential items with kind, listed status, floor price and listing count',
+        caption: 'Potential Tracker with live prices',
+      },
     ],
   },
   {
@@ -280,6 +306,15 @@ export const projects: Project[] = [
       'A C# console app that sorts 100,000 names by last name, then first name. The quicksort runs its recursive partitions in parallel with Parallel.Invoke up to a depth based on the CPU core count, then falls back to sequential sorting, and times the run with Stopwatch.',
     tech: ['C#', '.NET', 'Task Parallel Library'],
     repoUrl: 'https://github.com/Oralino/4CC3-Parallel-Name-Sort',
+    images: [
+      {
+        src: parallelConsole,
+        width: 650,
+        height: 439,
+        alt: 'Console output: 99,929 names read, 16 cores with a maximum parallel depth of 8, sorted in 18 milliseconds, then the first 10 sorted names',
+        caption: 'Sorting 99,929 names in 18 ms on 16 cores',
+      },
+    ],
   },
   {
     slug: 'engine-optimizer',
@@ -298,6 +333,15 @@ export const projects: Project[] = [
       'MongoDB storage through an Object Pool that reuses client connections',
       'Strategy-pattern exporters for JSON and raw INI',
       'Google Maps Places search for nearby PC shops',
+    ],
+    images: [
+      {
+        src: engineMain,
+        width: 602,
+        height: 719,
+        alt: 'Engine Optimizer window with a Palworld profile for an RTX 4070, Engine.ini tweaks, file and profile buttons, and a list of saved profiles',
+        caption: 'Editor with a sample profile loaded',
+      },
     ],
   },
   {
@@ -359,6 +403,22 @@ export const projects: Project[] = [
       "Clear one game's matches with parallel Promise.all requests, or wipe all data",
       'Input validation on the client and parameterized SQL queries on the server',
     ],
+    images: [
+      {
+        src: matchHistory,
+        width: 517,
+        height: 1142,
+        alt: 'Match History screen with a collapsible League of Legends folder and buttons to log a new match or clear all data',
+        caption: 'Match history grouped by game',
+      },
+      {
+        src: matchDetails,
+        width: 507,
+        height: 1142,
+        alt: 'Match Details form with game title, character played, kills and KDA ratio fields',
+        caption: 'Logging a match',
+      },
+    ],
   },
   {
     slug: 'pokedex',
@@ -376,6 +436,22 @@ export const projects: Project[] = [
       'Optional species lookup for the first English Pokédex entry',
       'Optional encounter lookup for up to three wild locations',
       "Clear error message when a Pokémon doesn't exist",
+    ],
+    images: [
+      {
+        src: pokedexResult,
+        width: 660,
+        height: 940,
+        alt: 'Pokémon Explorer showing Charizard (#6) with its sprite, height, weight, Pokédex entry and three encounter locations',
+        caption: 'Search with species and location data',
+      },
+      {
+        src: pokedexNotFound,
+        width: 660,
+        height: 554,
+        alt: 'Pokémon Explorer showing "Pokemon not found! Check your spelling." for an invalid name',
+        caption: 'Error message for an unknown Pokémon',
+      },
     ],
   },
 ]

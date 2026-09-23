@@ -172,10 +172,16 @@ Existing images that can be reused (copy into `src/assets/projects/<slug>/`, opt
 - LoL Win Predictor: `ROC_Curve_Comparison.png`, `Confusion_Matrix_*.png`
 - Engine Optimizer: UML diagram (currently a PDF; export an image if wanted)
 
-In use (WebP in `src/assets/projects/<slug>/`):
-- PowerTray: main window, tray menu, plan picker (from the repo README)
-- Simple Video Editor: main window (from the repo README)
-- Steam Backlog Manager: library, game details, add game (captured from a local run at 1440×900)
-- AI Game Recommender, MAGIC Gamma Classifier, LoL Win Predictor: plots listed above
+In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at least one image:
+- From repo READMEs: PowerTray (3), Simple Video Editor, iLvl Upgrade Odds, TL Marketplace Trackers,
+  Match Tracker (2)
+- Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
+  (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
+  longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab,
+  pending owner approval)
+- Plots: AI Game Recommender, MAGIC Gamma Classifier, LoL Win Predictor (listed above)
+- TNL API Scrapper: no image by owner decision (the tracker site needs a login to return data)
 
-**TODO (owner)**: app screenshots for TL Stat Calculator, iLvl Upgrade Odds, Engine Optimizer, Match Tracker.
+Captured screenshots were also added to the READMEs of 4CC3-Parallel-Name-Sort, 4SA3-Project1 and
+4WP3-Assignment2. Before adding any screenshot, check it for personal details (usernames, file paths,
+location, account names) and get owner approval.
