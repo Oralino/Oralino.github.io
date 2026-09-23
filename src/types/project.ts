@@ -1,5 +1,14 @@
 export type ProjectCategory = 'personal' | 'coursework'
 
+export interface ProjectImage {
+  src: string
+  width: number
+  height: number
+  /** States what the image shows, not "screenshot" */
+  alt: string
+  caption?: string
+}
+
 export interface Project {
   /** URL segment: /projects/:slug */
   slug: string
@@ -11,4 +20,10 @@ export interface Project {
   tech: string[]
   /** Only set for public repositories */
   repoUrl?: string
+  /** Latest GitHub release with downloadable builds */
+  releaseUrl?: string
+  /** Shown in "Selected work" on the home page instead of its regular section */
+  featured?: boolean
+  features?: string[]
+  images?: ProjectImage[]
 }

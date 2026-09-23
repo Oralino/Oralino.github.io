@@ -3,7 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Oralino</title>
+    <meta
+      name="description"
+      content="Projects by Oralino: Windows utilities, game tools, ML projects and web apps."
+    />
+    <script>
+      // Set the theme before first paint to avoid a flash (see useTheme.ts).
+      try {
+        const stored = localStorage.getItem('theme')
+        const dark = stored
+          ? stored === 'dark'
+          : matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.classList.toggle('dark', dark)
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
