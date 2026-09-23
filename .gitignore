@@ -1,0 +1,25 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+*.local
+
+# Logs
+*.log
+
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# Local Claude Code settings (agents in .claude/agents/ ARE committed)
+.claude/settings.local.json
+
+# OS / editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+desktop.ini
+Thumbs.db

@@ -1,0 +1,4 @@
+dist
+package-lock.json
+# Docs are hand-formatted (wide tables)
+*.md
