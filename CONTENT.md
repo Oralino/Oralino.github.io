@@ -85,4 +85,10 @@ Existing images that can be reused (copy into `src/assets/projects/<slug>/`, opt
 - LoL Win Predictor: `ROC_Curve_Comparison.png`, `Confusion_Matrix_*.png`
 - Engine Optimizer: UML diagram (currently a PDF; export an image if wanted)
 
-**TODO (owner)**: app screenshots for PowerTray, TL Stat Calculator, Simple Video Editor, iLvl Upgrade Odds, Engine Optimizer, Match Tracker.
+In use (WebP in `src/assets/projects/<slug>/`):
+- PowerTray: main window, tray menu, plan picker (from the repo README)
+- Simple Video Editor: main window (from the repo README)
+- Steam Backlog Manager: library, game details, add game (captured from a local run at 1440×900)
+- AI Game Recommender, MAGIC Gamma Classifier, LoL Win Predictor: plots listed above
+
+**TODO (owner)**: app screenshots for TL Stat Calculator, iLvl Upgrade Odds, Engine Optimizer, Match Tracker.

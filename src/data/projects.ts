@@ -4,6 +4,13 @@ import aiWeights from '../assets/projects/ai-game-recommender/model-weights.webp
 import lolRoc from '../assets/projects/lol-win-predictor/roc-comparison.webp'
 import magicResults from '../assets/projects/magic-gamma-classifier/results.webp'
 import magicRoc from '../assets/projects/magic-gamma-classifier/roc-comparison.webp'
+import powertrayMain from '../assets/projects/powertray/main-window.webp'
+import powertrayPlans from '../assets/projects/powertray/plan-picker.webp'
+import powertrayTray from '../assets/projects/powertray/tray-menu.webp'
+import videoEditorMain from '../assets/projects/simple-video-editor/main-window.webp'
+import steamAdd from '../assets/projects/steam-backlog-manager/add-game.webp'
+import steamDetails from '../assets/projects/steam-backlog-manager/game-details.webp'
+import steamLibrary from '../assets/projects/steam-backlog-manager/library.webp'
 
 // Mirrors CONTENT.md. Update CONTENT.md first, then this file.
 // Private repos are intentionally not listed yet (see TASKS.md).
@@ -27,6 +34,29 @@ export const projects: Project[] = [
       'Real-time tray status indicators',
       'Extracts executable icons through the Win32 API',
       'Parses Steam appmanifest files to launch installed Steam games by app ID',
+    ],
+    images: [
+      {
+        src: powertrayMain,
+        width: 1147,
+        height: 787,
+        alt: 'PowerTray main window: current plan Balanced, a Run at Windows Startup toggle, and lists of high-performance games and game launchers',
+        caption: 'Main window with the game and launcher lists',
+      },
+      {
+        src: powertrayTray,
+        width: 322,
+        height: 517,
+        alt: 'Tray menu listing configured games and launchers with their icons, plus Steam Library, Show Window and Exit',
+        caption: 'Tray menu with extracted game icons',
+      },
+      {
+        src: powertrayPlans,
+        width: 450,
+        height: 311,
+        alt: 'Select Power Plans dialog with dropdowns for the Balanced and High Performance plans',
+        caption: 'Choosing which power plans to switch between',
+      },
     ],
   },
   {
@@ -56,6 +86,15 @@ export const projects: Project[] = [
       'Hardware-accelerated encoding through NVIDIA NVENC, AMD AMF and Intel QSV',
       'Drag-and-drop video loading and YouTube fetching through yt-dlp',
       'Configurable export settings and dependency validation for VLC and FFmpeg',
+    ],
+    images: [
+      {
+        src: videoEditorMain,
+        width: 1497,
+        height: 1156,
+        alt: 'Video editor window: video preview with start and end trim controls, YouTube URL field, audio volume sliders, resolution and NVENC encoder dropdowns, and export settings',
+        caption: 'Trim, mix and export from one window',
+      },
     ],
   },
   {
@@ -197,6 +236,29 @@ export const projects: Project[] = [
       'Full-stack MVC app with Node.js and Express, storing games, playtime hours and metadata in SQLite',
       'Mustache and Bootstrap templates for adding games, updating completion state and showing priority badges',
       'Controller-model routing that keeps business logic separate, with backend validation',
+    ],
+    images: [
+      {
+        src: steamLibrary,
+        width: 1440,
+        height: 900,
+        alt: 'Game library page: cards for each game with status, playtime and rating, sort buttons for title, rating and playtime, and Details, Edit and Delete actions',
+        caption: 'Library view with sorting',
+      },
+      {
+        src: steamDetails,
+        width: 640,
+        height: 357,
+        alt: 'Details page for Throne and Liberty: status In Progress, 45.5 hours played, rating 8 out of 10, date added',
+        caption: 'Game details',
+      },
+      {
+        src: steamAdd,
+        width: 640,
+        height: 566,
+        alt: 'Add a New Game form with title, playtime, status and rating fields',
+        caption: 'Adding a game',
+      },
     ],
   },
   {
