@@ -1,6 +1,6 @@
 # oralino.github.io
 
-Source for Oralino's developer portfolio, live at https://oralino.github.io (after launch).
+Source for Oralino's developer portfolio, live at https://oralino.github.io.
 Built with React, Vite, TypeScript, Tailwind CSS and React Router.
 
 ## Requirements
@@ -36,7 +36,11 @@ src/
 ├── App.tsx         # routes
 ├── index.css       # Tailwind + design tokens
 ├── pages/          # route components
-├── data/           # project data
+├── components/     # layout, home sections, UI primitives
+├── data/           # project data and site copy
+├── assets/         # project screenshots and plots
+├── hooks/          # theme and document title
+├── lib/            # small helpers
 └── types/          # shared types
 ```
 
@@ -53,8 +57,8 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which lints, builds and d
 GitHub Pages. The site is served from the domain root (`base: '/'`). Links like `/projects/<slug>`
 work because the build copies `index.html` to `404.html`.
 
-The workflow is skipped while the repository is private. To launch: make the repo public, set
-**Settings → Pages → Source** to **GitHub Actions**, then re-run the workflow.
+Every push to `main` goes live. Pages is configured with **Settings → Pages → Source: GitHub Actions**
+and no custom domain. The build job skips itself if the repository is ever made private.
 
 ## Secrets
 

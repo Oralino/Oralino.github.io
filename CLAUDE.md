@@ -9,8 +9,8 @@ a current student at **McMaster University**. The site covers both personal proj
 Each project gets a card on the home page and its own detail page with a description, features,
 tech stack, screenshots, and links to the repo and releases/downloads.
 
-**Status:** Scaffolded. Routing and project data are wired with unstyled placeholder pages; no real UI
-is built until `DESIGN.md` is approved. Current work is tracked in `TASKS.md`.
+**Status:** Live at https://oralino.github.io. `DESIGN.md` is approved and implemented; every project has
+an overview, features and images (except TNL API Scrapper). Current work is tracked in `TASKS.md`.
 
 ## Source-of-truth documents
 
