@@ -51,6 +51,12 @@ with the course code, and label them as course projects.
 Visibility policy: **course projects are public, assignments are private** (exception: 4WP3-Assignment2
 stays public by choice).
 
+Not on the site, by owner decision:
+- **Khronos** (https://github.com/Oralino/Khronos, Fanshawe College, 2021): C++ calendar-conversion
+  library. 48 of its 49 source files are the instructor's copyrighted framework ("may be used and/or copied
+  only with the written permission of Garth Santor/Trinh Han"); the owner completed the implementations.
+  Left off on 2026-09-24; don't re-add without asking.
+
 | Project | Course | Local folder | Repo | Visibility | Summary |
 |---|---|---|---|---|---|
 | AI Game Recommender | 4AI3 (Artificial Intelligence) | `McMaster/4AI3/Project/GameRecommender` | https://github.com/Oralino/4AI3-GameRecommender | public | Hybrid Steam game recommender combining content-based, sentence-embedding and collaborative models, with Steam library import |
