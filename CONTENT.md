@@ -38,6 +38,7 @@ Source folders live in `C:\Documents\Script\`.
 | iLvl Upgrade Odds | `../iLvl Upgrade Odds` | https://github.com/Oralino/iLvl-Upgrade-Odds | Desktop app showing the upgrade and failure chance for one attempt at raising an item's level |
 | TL Marketplace Trackers | `../Python Test Scrappers` | https://github.com/Oralino/ThroneAndLibertyMarketPlaceTrackers | Python scrapers for the Throne & Liberty marketplace |
 | TNL API Scrapper | `../TNLPotentialScrapper` | https://github.com/Oralino/TNL-API-Scrapper | Node.js scraper for Throne & Liberty data |
+| Clipper for YouTube | (GitHub only) | https://github.com/Oralino/youtube-clipper | Firefox and Chrome extension that clips part of a YouTube video and saves it as an MP4 |
 
 Not yet on GitHub (confirm before including): `Daily Job Search Agent`, `job_search_agent`.
 
@@ -85,6 +86,14 @@ where there was no README. Figures are the projects' own printed results. Mirror
 - Real-time tray status indicators
 - Extracts executable icons through the Win32 API
 - Parses Steam appmanifest files to launch installed Steam games by app ID
+
+**Clipper for YouTube**: A browser extension for Firefox and Chrome that clips part of a YouTube video and saves it as an MP4 to share. It adds a Clip button to the YouTube player: set a start and end time, preview the clip, and save it at the quality you're watching. Everything happens in the browser, with no accounts or servers.
+- A Clip button in the YouTube player controls, also available from the toolbar icon
+- Start and end times typed in or taken from the current playback position
+- Preview the clip before saving
+- Records the playing video with MediaRecorder at a bitrate matched to its resolution, so the clip keeps the quality you're watching
+- Converts to MP4 in the background with Mediabunny when the browser can't record MP4 directly
+- Firefox and Chrome builds from one Manifest V3 codebase, with no data collection; unit-tested with Vitest
 
 **TL Stat Calculator**: A desktop calculator for Throne and Liberty's combat formulas. Each tab covers one mechanic, such as evasion, critical hits, heavy attacks, skill damage or crowd control, and turns your stats and the enemy's into an actual percentage chance or damage number. A trade-off tab compares two gear loadouts to show which one saves more HP against critical hits.
 - Evasion, critical hit and heavy attack chance from your stats against the enemy's
@@ -180,7 +189,7 @@ Existing images that can be reused (copy into `src/assets/projects/<slug>/`, opt
 
 In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at least one image:
 - From repo READMEs: PowerTray (3), Simple Video Editor, iLvl Upgrade Odds, TL Marketplace Trackers,
-  Match Tracker (2)
+  Match Tracker (2), Clipper for YouTube (2)
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
   longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)

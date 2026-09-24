@@ -1,6 +1,8 @@
 import type { Project } from '../types/project.ts'
 import aiBreakdown from '../assets/projects/ai-game-recommender/breakdown-rift.webp'
 import aiWeights from '../assets/projects/ai-game-recommender/model-weights.webp'
+import clipperAddonsCard from '../assets/projects/clipper-for-youtube/addons-card.webp'
+import clipperPanel from '../assets/projects/clipper-for-youtube/clip-panel.webp'
 import engineMain from '../assets/projects/engine-optimizer/main-window.webp'
 import ilvlDashboard from '../assets/projects/ilvl-upgrade-odds/dashboard.webp'
 import lolRoc from '../assets/projects/lol-win-predictor/roc-comparison.webp'
@@ -67,6 +69,42 @@ export const projects: Project[] = [
         height: 311,
         alt: 'Select Power Plans dialog with dropdowns for the Balanced and High Performance plans',
         caption: 'Choosing which power plans to switch between',
+      },
+    ],
+  },
+  {
+    slug: 'clipper-for-youtube',
+    name: 'Clipper for YouTube',
+    category: 'personal',
+    summary:
+      'Firefox and Chrome extension that clips part of a YouTube video and saves it as an MP4.',
+    overview:
+      "A browser extension for Firefox and Chrome that clips part of a YouTube video and saves it as an MP4 to share. It adds a Clip button to the YouTube player: set a start and end time, preview the clip, and save it at the quality you're watching. Everything happens in the browser, with no accounts or servers.",
+    tech: ['TypeScript', 'React', 'WXT', 'Mediabunny', 'Vitest'],
+    repoUrl: 'https://github.com/Oralino/youtube-clipper',
+    releaseUrl: 'https://github.com/Oralino/youtube-clipper/releases/latest',
+    features: [
+      'A Clip button in the YouTube player controls, also available from the toolbar icon',
+      'Start and end times typed in or taken from the current playback position',
+      'Preview the clip before saving',
+      "Records the playing video with MediaRecorder at a bitrate matched to its resolution, so the clip keeps the quality you're watching",
+      "Converts to MP4 in the background with Mediabunny when the browser can't record MP4 directly",
+      'Firefox and Chrome builds from one Manifest V3 codebase, with no data collection; unit-tested with Vitest',
+    ],
+    images: [
+      {
+        src: clipperPanel,
+        width: 446,
+        height: 520,
+        alt: 'The Create clip panel over a YouTube video: Start 0:10 and End 0:21 with Use current time buttons, an optional file name, and Preview and Save video buttons',
+        caption: 'Setting the start and end of a clip',
+      },
+      {
+        src: clipperAddonsCard,
+        width: 828,
+        height: 72,
+        alt: "Clipper for YouTube in Firefox's add-ons manager, switched on",
+        caption: "Installed in Firefox's add-ons manager",
       },
     ],
   },
