@@ -12,18 +12,18 @@ Owner-only items are marked **(owner)**.
 
 ## Next
 
-- [ ] Screenshots for the remaining projects (see `CONTENT.md` → Screenshots and media)
 - [ ] Social preview image and apple-touch icon (favicon and page titles done)
 - [ ] Accessibility and responsive pass (keyboard, focus, contrast, reduced motion, 320px width)
-
-## Launch
-
-- [ ] Final secrets scan of the full git history
-- [ ] **(owner)** Make `Oralino/Oralino.github.io` public
-- [ ] Settings → Pages → Source: **GitHub Actions**; re-run the deploy workflow
-- [ ] Verify https://oralino.github.io, including a deep link like `/projects/powertray`
+- [ ] Deploy workflow: bump `actions/configure-pages` / `upload-pages-artifact` when Node 24 versions ship
+      (GitHub warns their Node 20 runtime is deprecated)
 
 ## Done
+
+- [x] **Launched** at https://oralino.github.io (2026-09-24): history audited (no secrets or personal
+      data), commit identity rewritten to Oralino's no-reply address, repo recreated public, Pages source
+      GitHub Actions, deploy verified including the `/projects/powertray` deep link
+- [x] Images on every project page except TNL API Scrapper (needs a login); captured screenshots added
+      to their repos' READMEs; gallery rules recorded in `DESIGN.md` → Imagery
 
 - [x] Overview and features for every project detail page, from each repo's README or code
       (`CONTENT.md` → Project detail copy); READMEs added to TNL-API-Scrapper, 4SA3-Project1,
@@ -36,8 +36,7 @@ Owner-only items are marked **(owner)**.
 - [x] Scaffold React 19 + Vite 8 + TypeScript + Tailwind v4 + React Router v8; oxlint + Prettier
 - [x] Typed project data (`src/data/projects.ts`) for all projects with public repos; placeholder pages
       proving routing (home, project detail, 404)
-- [x] GitHub Pages setup: `base: '/'`, 404.html SPA fallback, deploy workflow (skipped while private)
-- [x] Private repo `Oralino/Oralino.github.io` created
+- [x] GitHub Pages setup: `base: '/'`, 404.html SPA fallback, deploy workflow
 - [x] Agents (`design-advisor`, `code-reviewer`, `qa-checker`) and `CLAUDE.md` / `DESIGN.md` / `CONTENT.md`
 - [x] Course projects published to GitHub with secrets removed; 4SA3-Project1 and 4WP3-Assignment-1
       recreated with clean history

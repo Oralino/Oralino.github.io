@@ -123,14 +123,14 @@ private/                  # git-ignored, never served: owner's resume, kept for 
 
 ## Deployment (GitHub Pages)
 
-- Repo: `Oralino/Oralino.github.io` (**private** during development), served at https://oralino.github.io
-  with `base: '/'` in `vite.config.ts`.
+- Repo: `Oralino/Oralino.github.io` (**public**, live since 2026-09-24), served at https://oralino.github.io
+  with `base: '/'` in `vite.config.ts`. No custom domain. Pages source: GitHub Actions.
+- Commit identity for this repo: `Oralino <92961231+Oralino@users.noreply.github.com>` (set in the repo's
+  git config). Never commit with the owner's real name or email.
 - Clean URLs (`/projects/<slug>`) via the 404 fallback: a small plugin in `vite.config.ts` copies
   `dist/index.html` to `dist/404.html` so GitHub Pages boots the app on deep links.
-- `.github/workflows/deploy.yml` lints, builds and deploys on push to `main`. The build job is skipped
-  while the repo is private (free-plan Pages needs a public repo).
-- Launch steps: make the repo public, then Settings → Pages → Source: **GitHub Actions**, then re-run the
-  workflow. Tracked in `TASKS.md`.
+- `.github/workflows/deploy.yml` lints, builds and deploys on push to `main`, so every push to `main`
+  goes live. (The build job skips itself if the repo is ever made private again.)
 
 ## Guidelines
 
