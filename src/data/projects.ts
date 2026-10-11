@@ -1,6 +1,7 @@
 import type { Project } from '../types/project.ts'
 import aiBreakdown from '../assets/projects/ai-game-recommender/breakdown-rift.webp'
 import aiWeights from '../assets/projects/ai-game-recommender/model-weights.webp'
+import aion2Calculator from '../assets/projects/aion2-crafting-calculator/calculator.webp'
 import clipperAddonsCard from '../assets/projects/clipper-for-youtube/addons-card.webp'
 import clipperPanel from '../assets/projects/clipper-for-youtube/clip-panel.webp'
 import engineMain from '../assets/projects/engine-optimizer/main-window.webp'
@@ -73,6 +74,46 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'aion2-crafting-calculator',
+    name: 'Aion2 Crafting Calculator',
+    category: 'personal',
+    summary:
+      "Windows desktop app for AION 2 that works out a craft's real cost and profit, reading market prices from the screen.",
+    overview:
+      "A Windows desktop app for AION 2 that works out what a craft really costs and whether it's worth doing. Pick a recipe and it lays out the whole combo chain tier by tier, using your in-game success chance and the 25% combo chance to work out how many crafts each tier needs. Press F10 on the in-game market and it reads the listed prices straight from the screen, then shows the total cost and the profit after the 10% market tax.",
+    tech: [
+      'Python',
+      'PySide6',
+      'RapidOCR',
+      'NumPy',
+      'SQLite',
+      'PyInstaller',
+      'pytest',
+    ],
+    repoUrl: 'https://github.com/Oralino/aion2-crafting-calculator',
+    releaseUrl:
+      'https://github.com/Oralino/aion2-crafting-calculator/releases/latest',
+    featured: true,
+    features: [
+      'Every craftable weapon, armour and accessory recipe with its full combo chain, with search that matches words in any order',
+      'Crafts, successes and combos per tier from your success chance and the 25% combo chance, counting that failed crafts use up the item from the tier below',
+      'Total cost, the value lost to failed and non-combo crafts, and profit after the 10% market tax, including the chance of the Splendent version at the top tier',
+      "F10 market capture: OCR with RapidOCR and digit template matching reads each listed item's lowest price, and skips anything it can't read clearly instead of guessing",
+      'Planned crafts per tier and already-bought Splendent pieces adjust the tiers below them',
+      'Prices stored locally in SQLite; packaged as a Windows .exe with PyInstaller',
+    ],
+    images: [
+      {
+        src: aion2Calculator,
+        width: 1716,
+        height: 1437,
+        alt: 'Star Dragon Lord Bow open in the calculator: four tiers from Asvata Bow to Star Dragon Lord Bow, each with its materials, OCR-captured prices, tier cost and lost value, and a summary showing a total cost of 47,439,246 Kinah',
+        caption:
+          'Four-tier combo chain for Star Dragon Lord Bow with captured market prices',
+      },
+    ],
+  },
+  {
     slug: 'clipper-for-youtube',
     name: 'Clipper for YouTube',
     category: 'personal',
@@ -83,6 +124,7 @@ export const projects: Project[] = [
     tech: ['TypeScript', 'React', 'WXT', 'Mediabunny', 'Vitest'],
     repoUrl: 'https://github.com/Oralino/youtube-clipper',
     releaseUrl: 'https://github.com/Oralino/youtube-clipper/releases/latest',
+    featured: true,
     features: [
       'A Clip button in the YouTube player controls, also available from the toolbar icon',
       'Start and end times typed in or taken from the current playback position',
@@ -148,7 +190,6 @@ export const projects: Project[] = [
     tech: ['Python', 'CustomTkinter', 'FFmpeg', 'VLC'],
     repoUrl: 'https://github.com/Oralino/SimpleVideoEditor',
     releaseUrl: 'https://github.com/Oralino/SimpleVideoEditor/releases/latest',
-    featured: true,
     features: [
       'Video trimming with timeline preview and resolution scaling',
       'Asynchronous processing with encoding progress tracking and cancellation cleanup',
@@ -402,7 +443,6 @@ export const projects: Project[] = [
       "A server-rendered web app for tracking a game backlog: what you're playing, what you've finished and what's next. Express handles the routes, SQLite stores each game's status, playtime and rating, and Mustache templates render the pages with Bootstrap.",
     tech: ['Node.js', 'Express', 'Mustache', 'SQLite', 'Bootstrap'],
     repoUrl: 'https://github.com/Oralino/4WP3-Project1',
-    featured: true,
     images: [
       {
         src: steamLibrary,

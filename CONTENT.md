@@ -39,10 +39,11 @@ Source folders live in `C:\Documents\Script\`.
 | TL Marketplace Trackers | `../Python Test Scrappers` | https://github.com/Oralino/ThroneAndLibertyMarketPlaceTrackers | Python scrapers for the Throne & Liberty marketplace |
 | TNL API Scrapper | `../TNLPotentialScrapper` | https://github.com/Oralino/TNL-API-Scrapper | Node.js scraper for Throne & Liberty data |
 | Clipper for YouTube | (GitHub only) | https://github.com/Oralino/youtube-clipper | Firefox and Chrome extension that clips part of a YouTube video and saves it as an MP4 |
+| Aion2 Crafting Calculator | `../Aion2 Crafting Calculator` | https://github.com/Oralino/aion2-crafting-calculator | Windows desktop app for AION 2 that works out a craft's real cost and profit, reading market prices from the screen |
 
 Not yet on GitHub (confirm before including): `Daily Job Search Agent`, `job_search_agent`.
 
-Featured on the home page: PowerTray, Simple Video Editor, Steam Backlog Manager.
+Featured on the home page: PowerTray, Aion2 Crafting Calculator, Clipper for YouTube.
 
 ## Coursework (McMaster University)
 
@@ -86,6 +87,14 @@ where there was no README. Figures are the projects' own printed results. Mirror
 - Real-time tray status indicators
 - Extracts executable icons through the Win32 API
 - Parses Steam appmanifest files to launch installed Steam games by app ID
+
+**Aion2 Crafting Calculator**: A Windows desktop app for AION 2 that works out what a craft really costs and whether it's worth doing. Pick a recipe and it lays out the whole combo chain tier by tier, using your in-game success chance and the 25% combo chance to work out how many crafts each tier needs. Press F10 on the in-game market and it reads the listed prices straight from the screen, then shows the total cost and the profit after the 10% market tax.
+- Every craftable weapon, armour and accessory recipe with its full combo chain, with search that matches words in any order
+- Crafts, successes and combos per tier from your success chance and the 25% combo chance, counting that failed crafts use up the item from the tier below
+- Total cost, the value lost to failed and non-combo crafts, and profit after the 10% market tax, including the chance of the Splendent version at the top tier
+- F10 market capture: OCR with RapidOCR and digit template matching reads each listed item's lowest price, and skips anything it can't read clearly instead of guessing
+- Planned crafts per tier and already-bought Splendent pieces adjust the tiers below them
+- Prices stored locally in SQLite; packaged as a Windows .exe with PyInstaller
 
 **Clipper for YouTube**: A browser extension for Firefox and Chrome that clips part of a YouTube video and saves it as an MP4 to share. It adds a Clip button to the YouTube player: set a start and end time, preview the clip, and save it at the quality you're watching. Everything happens in the browser, with no accounts or servers.
 - A Clip button in the YouTube player controls, also available from the toolbar icon
@@ -189,7 +198,7 @@ Existing images that can be reused (copy into `src/assets/projects/<slug>/`, opt
 
 In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at least one image:
 - From repo READMEs: PowerTray (3), Simple Video Editor, iLvl Upgrade Odds, TL Marketplace Trackers,
-  Match Tracker (2), Clipper for YouTube (2)
+  Match Tracker (2), Clipper for YouTube (2), Aion2 Crafting Calculator
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
   longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)
