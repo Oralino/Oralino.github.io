@@ -37,6 +37,86 @@ import tlStatDefVsCrit from '../assets/projects/tl-stat-calculator/def-vs-crit.w
 export const projects: Project[] = [
   // Personal projects
   {
+    slug: 'daeva-kit',
+    name: 'Daeva Kit',
+    category: 'personal',
+    summary:
+      "Windows toolkit for AION 2 that reads the game's own network traffic for a minimap radar, ping meter, skill cooldowns and pet tracking.",
+    overview:
+      "A Windows toolkit for AION 2: one tray app with a page per tool. It reads the game client's own network traffic and the screen, then draws click-through overlays over the game: a radar that marks nearby cubes on the minimap with their distance and direction, markers on the world map, a ping meter with lag alerts, skill cooldown and buff icons, and a panel for the pet souls you're farming. It never sends or changes packets, touches the game's memory or automates input.",
+    tech: [
+      'Python',
+      'Scapy',
+      'Npcap',
+      'NumPy',
+      'mss',
+      'Tkinter',
+      'PyInstaller',
+    ],
+    featured: true,
+    features: [
+      "Read-only packet capture with Scapy and Npcap, decoding the game's LZ4-compressed messages; works through ping boosters like ExitLag via loopback capture",
+      'Minimap radar with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game',
+      "Ping meter with the in-game ping, the network round-trip and the last minute's maximum, and lag alerts that say whether a spike came from the PC, the network or the server",
+      "Skill cooldown and buff icons you place anywhere over the game, with key capture and snapping into rows; skill names and icons from NC's public character pages",
+      "Pet panel with the souls the pet you're farming needs for its next level, and which monsters in view drop pet souls",
+      'World map markers with a category filter, and a bar at the minimap with Stop, the ping, the weather from Open-Meteo and a button for the NotMeter DPS meter',
+      'Tray app with a setup checklist, Start with Windows, a global Play / Stop hotkey and self-updates checked by size and SHA-256; overlays hidden from screen capture',
+    ],
+    images: [
+      {
+        src: daevaHome,
+        width: 900,
+        height: 640,
+        alt: "Daeva Kit's Home page: a sidebar with Radar, Pets, Spells, World map, DPS meter, Ping meter and Weather; a green Play button; and a checklist with Npcap installed, Administrator yes, minimap set up and game found",
+        caption: 'Home page with the before-playing checklist',
+      },
+      {
+        src: daevaStopBar,
+        width: 528,
+        height: 67,
+        alt: 'The bar at the minimap: a status dot, Stop, DPS, a 38 ms ping, 18°C with a cloudy weather icon, and a move handle',
+        caption:
+          'The bar at the minimap with the ping and weather (sample data)',
+      },
+      {
+        src: daevaPingAlert,
+        width: 433,
+        height: 118,
+        alt: 'Ping panel showing 1210 ms in red, NET 19 and MAX 1210, with a red alert: ping 1210 server, network 60, freeze 450, 3s ago',
+        caption: 'A lag alert in the ping panel (sample data)',
+      },
+      {
+        src: daevaSpellIcons,
+        width: 310,
+        height: 138,
+        alt: 'Skill and buff icons over the game: two buff timers at 24 and 0.7 seconds above five skills on keys 1, 2, Q, E and S+F, three of them cooling down',
+        caption: 'Skill cooldown and buff icons (sample data)',
+      },
+      {
+        src: daevaPetsPanel,
+        width: 329,
+        height: 217,
+        alt: 'Pets panel: a Cogni pet, 3 of its monsters in view, 41 of 75 souls with 34 to Lv3, and 4 more pets nearby',
+        caption: 'Pets panel with the pet being farmed (sample data)',
+      },
+      {
+        src: daevaRadar,
+        width: 900,
+        height: 640,
+        alt: 'Radar page: the on/off switch and overlay options for radar style (disc or dots), distance rings, distance labels, the no-position hint and a toast for every new cube',
+        caption: 'Radar settings',
+      },
+      {
+        src: daevaWeather,
+        width: 900,
+        height: 640,
+        alt: 'Weather page: the on/off switch, a sample place of Seoul, South Korea with Find my city and Change buttons, Celsius or Fahrenheit, and a switch to show it on the folded Stop bar',
+        caption: 'Weather settings (sample place)',
+      },
+    ],
+  },
+  {
     slug: 'powertray',
     name: 'PowerTray',
     category: 'personal',
@@ -107,7 +187,6 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/Oralino/aion2-crafting-calculator',
     releaseUrl:
       'https://github.com/Oralino/aion2-crafting-calculator/releases/latest',
-    featured: true,
     features: [
       'Every craftable weapon, armour and accessory recipe with its full combo chain, with search that matches words in any order',
       'Crafts, successes and combos per tier from your success chance and the 25% combo chance, counting that failed crafts use up the item from the tier below',
@@ -161,85 +240,6 @@ export const projects: Project[] = [
         height: 72,
         alt: "Clipper for YouTube in Firefox's add-ons manager, switched on",
         caption: "Installed in Firefox's add-ons manager",
-      },
-    ],
-  },
-  {
-    slug: 'daeva-kit',
-    name: 'Daeva Kit',
-    category: 'personal',
-    summary:
-      "Windows toolkit for AION 2 that reads the game's own network traffic for a minimap radar, ping meter, skill cooldowns and pet tracking.",
-    overview:
-      "A Windows toolkit for AION 2: one tray app with a page per tool. It reads the game client's own network traffic and the screen, then draws click-through overlays over the game: a radar that marks nearby cubes on the minimap with their distance and direction, markers on the world map, a ping meter with lag alerts, skill cooldown and buff icons, and a panel for the pet souls you're farming. It never sends or changes packets, touches the game's memory or automates input.",
-    tech: [
-      'Python',
-      'Scapy',
-      'Npcap',
-      'NumPy',
-      'mss',
-      'Tkinter',
-      'PyInstaller',
-    ],
-    features: [
-      "Read-only packet capture with Scapy and Npcap, decoding the game's LZ4-compressed messages; works through ping boosters like ExitLag via loopback capture",
-      'Minimap radar with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game',
-      "Ping meter with the in-game ping, the network round-trip and the last minute's maximum, and lag alerts that say whether a spike came from the PC, the network or the server",
-      "Skill cooldown and buff icons you place anywhere over the game, with key capture and snapping into rows; skill names and icons from NC's public character pages",
-      "Pet panel with the souls the pet you're farming needs for its next level, and which monsters in view drop pet souls",
-      'World map markers with a category filter, and a bar at the minimap with Stop, the ping, the weather from Open-Meteo and a button for the NotMeter DPS meter',
-      'Tray app with a setup checklist, Start with Windows, a global Play / Stop hotkey and self-updates checked by size and SHA-256; overlays hidden from screen capture',
-    ],
-    images: [
-      {
-        src: daevaHome,
-        width: 900,
-        height: 640,
-        alt: "Daeva Kit's Home page: a sidebar with Radar, Pets, Spells, World map, DPS meter, Ping meter and Weather; a green Play button; and a checklist with Npcap installed, Administrator yes, minimap set up and game found",
-        caption: 'Home page with the before-playing checklist',
-      },
-      {
-        src: daevaStopBar,
-        width: 528,
-        height: 67,
-        alt: 'The bar at the minimap: a status dot, Stop, DPS, a 38 ms ping, 18°C with a cloudy weather icon, and a move handle',
-        caption:
-          'The bar at the minimap with the ping and weather (sample data)',
-      },
-      {
-        src: daevaPingAlert,
-        width: 433,
-        height: 118,
-        alt: 'Ping panel showing 1210 ms in red, NET 19 and MAX 1210, with a red alert: ping 1210 server, network 60, freeze 450, 3s ago',
-        caption: 'A lag alert in the ping panel (sample data)',
-      },
-      {
-        src: daevaSpellIcons,
-        width: 310,
-        height: 138,
-        alt: 'Skill and buff icons over the game: two buff timers at 24 and 0.7 seconds above five skills on keys 1, 2, Q, E and S+F, three of them cooling down',
-        caption: 'Skill cooldown and buff icons (sample data)',
-      },
-      {
-        src: daevaPetsPanel,
-        width: 329,
-        height: 217,
-        alt: 'Pets panel: a Cogni pet, 3 of its monsters in view, 41 of 75 souls with 34 to Lv3, and 4 more pets nearby',
-        caption: 'Pets panel with the pet being farmed (sample data)',
-      },
-      {
-        src: daevaRadar,
-        width: 900,
-        height: 640,
-        alt: 'Radar page: the on/off switch and overlay options for radar style (disc or dots), distance rings, distance labels, the no-position hint and a toast for every new cube',
-        caption: 'Radar settings',
-      },
-      {
-        src: daevaWeather,
-        width: 900,
-        height: 640,
-        alt: 'Weather page: the on/off switch, a sample place of Seoul, South Korea with Find my city and Change buttons, Celsius or Fahrenheit, and a switch to show it on the folded Stop bar',
-        caption: 'Weather settings (sample place)',
       },
     ],
   },

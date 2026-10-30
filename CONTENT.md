@@ -45,7 +45,7 @@ Source folders live in `C:\Documents\Script\`.
 
 Not yet on GitHub (confirm before including): `Daily Job Search Agent`, `job_search_agent`.
 
-Featured on the home page: PowerTray, Aion2 Crafting Calculator, Clipper for YouTube.
+Featured on the home page: Daeva Kit, PowerTray, Clipper for YouTube.
 
 ## Coursework (McMaster University)
 

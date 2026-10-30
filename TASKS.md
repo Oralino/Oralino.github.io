@@ -19,9 +19,10 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] Featured projects are now Daeva Kit, PowerTray and Clipper for YouTube
 - [x] PowerTray updated for its redesign and picture-in-picture (new copy, owner's screenshots); its repo
       is now private, so the repo and release links are gone. Daeva Kit added (private, no links,
-      owner's sample-data screenshots). Featured: PowerTray, Aion2 Crafting Calculator, Clipper for YouTube
+      owner's sample-data screenshots)
 - [x] **Launched** at https://oralino.github.io (2026-09-24): history audited (no secrets or personal
       data), commit identity rewritten to Oralino's no-reply address, repo recreated public, Pages source
       GitHub Actions, deploy verified including the `/projects/powertray` deep link
