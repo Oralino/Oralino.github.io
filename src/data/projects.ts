@@ -4,6 +4,13 @@ import aiWeights from '../assets/projects/ai-game-recommender/model-weights.webp
 import aion2Calculator from '../assets/projects/aion2-crafting-calculator/calculator.webp'
 import clipperAddonsCard from '../assets/projects/clipper-for-youtube/addons-card.webp'
 import clipperPanel from '../assets/projects/clipper-for-youtube/clip-panel.webp'
+import daevaHome from '../assets/projects/daeva-kit/home.webp'
+import daevaStopBar from '../assets/projects/daeva-kit/stop-bar.webp'
+import daevaPingAlert from '../assets/projects/daeva-kit/ping-alert.webp'
+import daevaSpellIcons from '../assets/projects/daeva-kit/spell-icons.webp'
+import daevaPetsPanel from '../assets/projects/daeva-kit/pets-panel.webp'
+import daevaRadar from '../assets/projects/daeva-kit/radar-page.webp'
+import daevaWeather from '../assets/projects/daeva-kit/weather-page.webp'
 import engineMain from '../assets/projects/engine-optimizer/main-window.webp'
 import ilvlDashboard from '../assets/projects/ilvl-upgrade-odds/dashboard.webp'
 import lolRoc from '../assets/projects/lol-win-predictor/roc-comparison.webp'
@@ -15,7 +22,7 @@ import parallelConsole from '../assets/projects/parallel-name-sort/console-outpu
 import pokedexNotFound from '../assets/projects/pokedex/not-found.webp'
 import pokedexResult from '../assets/projects/pokedex/search-result.webp'
 import powertrayMain from '../assets/projects/powertray/main-window.webp'
-import powertrayPlans from '../assets/projects/powertray/plan-picker.webp'
+import powertrayPip from '../assets/projects/powertray/pip-window.webp'
 import powertrayTray from '../assets/projects/powertray/tray-menu.webp'
 import videoEditorMain from '../assets/projects/simple-video-editor/main-window.webp'
 import steamAdd from '../assets/projects/steam-backlog-manager/add-game.webp'
@@ -25,7 +32,7 @@ import marketplaceTracker from '../assets/projects/tl-marketplace-trackers/poten
 import tlStatDefVsCrit from '../assets/projects/tl-stat-calculator/def-vs-crit.webp'
 
 // Mirrors CONTENT.md. Update CONTENT.md first, then this file.
-// Private repos are intentionally not listed yet (see TASKS.md).
+// Private repos are listed without repo or release links (see CONTENT.md).
 
 export const projects: Project[] = [
   // Personal projects
@@ -34,42 +41,49 @@ export const projects: Project[] = [
     name: 'PowerTray',
     category: 'personal',
     summary:
-      'Windows tray utility that switches to the High Performance power plan while games run, then back to Balanced when they close.',
+      'Windows tray utility that switches to High Performance while games run and plays any game in a floating picture-in-picture window.',
     overview:
-      "A lightweight Windows utility that sits in the system tray and watches for the games you choose. When one starts, it switches Windows to the High Performance power plan; when it closes, it switches back to Balanced. A dashboard manages the game list, launchers that shouldn't trigger a switch, and which power plans to use.",
-    tech: ['Python', 'PyQt6', 'CustomTkinter', 'psutil', 'PyInstaller'],
-    repoUrl: 'https://github.com/Oralino/PowerTrayOptimizer',
-    releaseUrl: 'https://github.com/Oralino/PowerTrayOptimizer/releases/latest',
+      "A Windows utility that sits in the system tray and switches Windows to the High Performance power plan while the games you choose are running, then back to Balanced when they close. It can also play any game, launcher or open window as a floating picture-in-picture player, like a browser's pop-out video: the game keeps running at full resolution on an invisible virtual monitor while a small always-on-top window shows it live and passes your mouse and keyboard through.",
+    tech: [
+      'Python',
+      'CustomTkinter',
+      'PyQt6',
+      'pywin32',
+      'psutil',
+      'PyInstaller',
+    ],
     featured: true,
     features: [
-      'Multi-threaded monitoring of configured game processes with psutil',
-      'Switches between Balanced and High Performance power plans through Windows powercfg',
-      'Drag-and-drop executable management, configurable power plans and Windows startup integration',
-      'Real-time tray status indicators',
-      'Extracts executable icons through the Win32 API',
-      'Parses Steam appmanifest files to launch installed Steam games by app ID',
+      'Watches the configured game processes with psutil and switches power plans through Windows powercfg',
+      'Picture-in-picture for any game, launcher or open window: a live DWM thumbnail of the game, which runs on a virtual monitor from the bundled Virtual Display Driver',
+      'Click into the PiP to play: the mouse and keyboard go to the game, and holding Alt gives the cursor back',
+      "Switches a fullscreen game to windowed for the PiP and back afterwards, and remembers each program's PiP size",
+      'Sidebar window with Home, Games, Launchers and Open windows pages; drag in .exe files or shortcuts, which keep their launch arguments',
+      "Tray menu with the games' extracted icons, Launch in PiP and Steam Library, plus self-updates checked by size and SHA-256",
     ],
     images: [
       {
         src: powertrayMain,
-        width: 1147,
-        height: 787,
-        alt: 'PowerTray main window: current plan Balanced, a Run at Windows Startup toggle, and lists of high-performance games and game launchers',
-        caption: 'Main window with the game and launcher lists',
+        width: 1120,
+        height: 807,
+        alt: "PowerTray's Home page: a sidebar with Home, Games, Launchers, Open windows, Updates and Settings; the last played launcher with Launch and Launch PiP buttons; Balanced when no game is running and High performance when one is; and a PiP checklist with the Virtual Display Driver installed and the virtual monitor on at 3440x1440",
+        caption:
+          'Home page with the last played game, power plans and PiP checklist',
+      },
+      {
+        src: powertrayPip,
+        width: 2000,
+        height: 815,
+        alt: "PowerTray's window on the left showing High Performance while Wuthering Waves plays in a floating picture-in-picture window at the bottom right, both in front of a white canvas",
+        caption:
+          'A game playing in the picture-in-picture window, in front of other windows',
       },
       {
         src: powertrayTray,
-        width: 322,
-        height: 517,
-        alt: 'Tray menu listing configured games and launchers with their icons, plus Steam Library, Show Window and Exit',
-        caption: 'Tray menu with extracted game icons',
-      },
-      {
-        src: powertrayPlans,
-        width: 450,
-        height: 311,
-        alt: 'Select Power Plans dialog with dropdowns for the Balanced and High Performance plans',
-        caption: 'Choosing which power plans to switch between',
+        width: 440,
+        height: 675,
+        alt: 'Tray menu listing games and launchers with their icons, then Launch in PiP and PiP a running window submenus, Steam Library, Show Window and Exit',
+        caption: 'Tray menu with Launch in PiP',
       },
     ],
   },
@@ -147,6 +161,85 @@ export const projects: Project[] = [
         height: 72,
         alt: "Clipper for YouTube in Firefox's add-ons manager, switched on",
         caption: "Installed in Firefox's add-ons manager",
+      },
+    ],
+  },
+  {
+    slug: 'daeva-kit',
+    name: 'Daeva Kit',
+    category: 'personal',
+    summary:
+      "Windows toolkit for AION 2 that reads the game's own network traffic for a minimap radar, ping meter, skill cooldowns and pet tracking.",
+    overview:
+      "A Windows toolkit for AION 2: one tray app with a page per tool. It reads the game client's own network traffic and the screen, then draws click-through overlays over the game: a radar that marks nearby cubes on the minimap with their distance and direction, markers on the world map, a ping meter with lag alerts, skill cooldown and buff icons, and a panel for the pet souls you're farming. It never sends or changes packets, touches the game's memory or automates input.",
+    tech: [
+      'Python',
+      'Scapy',
+      'Npcap',
+      'NumPy',
+      'mss',
+      'Tkinter',
+      'PyInstaller',
+    ],
+    features: [
+      "Read-only packet capture with Scapy and Npcap, decoding the game's LZ4-compressed messages; works through ping boosters like ExitLag via loopback capture",
+      'Minimap radar with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game',
+      "Ping meter with the in-game ping, the network round-trip and the last minute's maximum, and lag alerts that say whether a spike came from the PC, the network or the server",
+      "Skill cooldown and buff icons you place anywhere over the game, with key capture and snapping into rows; skill names and icons from NC's public character pages",
+      "Pet panel with the souls the pet you're farming needs for its next level, and which monsters in view drop pet souls",
+      'World map markers with a category filter, and a bar at the minimap with Stop, the ping, the weather from Open-Meteo and a button for the NotMeter DPS meter',
+      'Tray app with a setup checklist, Start with Windows, a global Play / Stop hotkey and self-updates checked by size and SHA-256; overlays hidden from screen capture',
+    ],
+    images: [
+      {
+        src: daevaHome,
+        width: 900,
+        height: 640,
+        alt: "Daeva Kit's Home page: a sidebar with Radar, Pets, Spells, World map, DPS meter, Ping meter and Weather; a green Play button; and a checklist with Npcap installed, Administrator yes, minimap set up and game found",
+        caption: 'Home page with the before-playing checklist',
+      },
+      {
+        src: daevaStopBar,
+        width: 528,
+        height: 67,
+        alt: 'The bar at the minimap: a status dot, Stop, DPS, a 38 ms ping, 18°C with a cloudy weather icon, and a move handle',
+        caption:
+          'The bar at the minimap with the ping and weather (sample data)',
+      },
+      {
+        src: daevaPingAlert,
+        width: 433,
+        height: 118,
+        alt: 'Ping panel showing 1210 ms in red, NET 19 and MAX 1210, with a red alert: ping 1210 server, network 60, freeze 450, 3s ago',
+        caption: 'A lag alert in the ping panel (sample data)',
+      },
+      {
+        src: daevaSpellIcons,
+        width: 310,
+        height: 138,
+        alt: 'Skill and buff icons over the game: two buff timers at 24 and 0.7 seconds above five skills on keys 1, 2, Q, E and S+F, three of them cooling down',
+        caption: 'Skill cooldown and buff icons (sample data)',
+      },
+      {
+        src: daevaPetsPanel,
+        width: 329,
+        height: 217,
+        alt: 'Pets panel: a Cogni pet, 3 of its monsters in view, 41 of 75 souls with 34 to Lv3, and 4 more pets nearby',
+        caption: 'Pets panel with the pet being farmed (sample data)',
+      },
+      {
+        src: daevaRadar,
+        width: 900,
+        height: 640,
+        alt: 'Radar page: the on/off switch and overlay options for radar style (disc or dots), distance rings, distance labels, the no-position hint and a toast for every new cube',
+        caption: 'Radar settings',
+      },
+      {
+        src: daevaWeather,
+        width: 900,
+        height: 640,
+        alt: 'Weather page: the on/off switch, a sample place of Seoul, South Korea with Find my city and Change buttons, Celsius or Fahrenheit, and a switch to show it on the folded Stop bar',
+        caption: 'Weather settings (sample place)',
       },
     ],
   },

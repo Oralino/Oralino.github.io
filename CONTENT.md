@@ -4,8 +4,9 @@ Source of truth for **what the site says**: projects, descriptions and copy. `DE
 looks; `CLAUDE.md` covers how it's built. The site reads this content from `src/data/projects.ts`;
 update this file first, then mirror the change there.
 
-Currently in `src/data/projects.ts`: every project below with a **public** repo. Private ones are not
-listed yet (decision pending in `TASKS.md`).
+Currently in `src/data/projects.ts`: every project below with a **public** repo, plus PowerTray and
+Daeva Kit, which are private by the owner's choice (not open source) and listed without repo or release
+links. Private coursework is not listed yet (decision pending in `TASKS.md`).
 
 Rules:
 - Pull project descriptions from each project's README and code. Never invent features, metrics or results.
@@ -32,7 +33,7 @@ Source folders live in `C:\Documents\Script\`.
 
 | Project | Local folder | Repo | Summary |
 |---|---|---|---|
-| PowerTray | `../PowerTray` | https://github.com/Oralino/PowerTrayOptimizer | Windows tray utility that switches to the High Performance power plan while games run, then back to Balanced when they close |
+| PowerTray | `../PowerTray` | https://github.com/Oralino/PowerTrayOptimizer (private, not linked) | Windows tray utility that switches to High Performance while games run and plays any game in a floating picture-in-picture window |
 | TL Stat Calculator | `../TLStatCalculator` | https://github.com/Oralino/TL-Stat-Calculator | Desktop app for Throne & Liberty combat formulas, hidden stat thresholds and gear trade-offs |
 | Simple Video Editor | `../VideoEditor` | https://github.com/Oralino/SimpleVideoEditor | Video trimming and audio mixing tool with drag-and-drop, hardware-accelerated encoding and dual-track volume controls |
 | iLvl Upgrade Odds | `../iLvl Upgrade Odds` | https://github.com/Oralino/iLvl-Upgrade-Odds | Desktop app showing the upgrade and failure chance for one attempt at raising an item's level |
@@ -40,6 +41,7 @@ Source folders live in `C:\Documents\Script\`.
 | TNL API Scrapper | `../TNLPotentialScrapper` | https://github.com/Oralino/TNL-API-Scrapper | Node.js scraper for Throne & Liberty data |
 | Clipper for YouTube | (GitHub only) | https://github.com/Oralino/youtube-clipper | Firefox and Chrome extension that clips part of a YouTube video and saves it as an MP4 |
 | Aion2 Crafting Calculator | `../Aion2 Crafting Calculator` | https://github.com/Oralino/aion2-crafting-calculator | Windows desktop app for AION 2 that works out a craft's real cost and profit, reading market prices from the screen |
+| Daeva Kit | `../Cube Finder` | https://github.com/Oralino/daeva-kit (private, not linked) | Windows toolkit for AION 2 that reads the game's own network traffic for a minimap radar, ping meter, skill cooldowns and pet tracking |
 
 Not yet on GitHub (confirm before including): `Daily Job Search Agent`, `job_search_agent`.
 
@@ -80,13 +82,22 @@ Overview and feature list for each detail page, written from the repo's README, 
 where there was no README. Figures are the projects' own printed results. Mirrored in
 `src/data/projects.ts`.
 
-**PowerTray**: A lightweight Windows utility that sits in the system tray and watches for the games you choose. When one starts, it switches Windows to the High Performance power plan; when it closes, it switches back to Balanced. A dashboard manages the game list, launchers that shouldn't trigger a switch, and which power plans to use.
-- Multi-threaded monitoring of configured game processes with psutil
-- Switches between Balanced and High Performance power plans through Windows powercfg
-- Drag-and-drop executable management, configurable power plans and Windows startup integration
-- Real-time tray status indicators
-- Extracts executable icons through the Win32 API
-- Parses Steam appmanifest files to launch installed Steam games by app ID
+**PowerTray**: A Windows utility that sits in the system tray and switches Windows to the High Performance power plan while the games you choose are running, then back to Balanced when they close. It can also play any game, launcher or open window as a floating picture-in-picture player, like a browser's pop-out video: the game keeps running at full resolution on an invisible virtual monitor while a small always-on-top window shows it live and passes your mouse and keyboard through.
+- Watches the configured game processes with psutil and switches power plans through Windows powercfg
+- Picture-in-picture for any game, launcher or open window: a live DWM thumbnail of the game, which runs on a virtual monitor from the bundled Virtual Display Driver
+- Click into the PiP to play: the mouse and keyboard go to the game, and holding Alt gives the cursor back
+- Switches a fullscreen game to windowed for the PiP and back afterwards, and remembers each program's PiP size
+- Sidebar window with Home, Games, Launchers and Open windows pages; drag in .exe files or shortcuts, which keep their launch arguments
+- Tray menu with the games' extracted icons, Launch in PiP and Steam Library, plus self-updates checked by size and SHA-256
+
+**Daeva Kit**: A Windows toolkit for AION 2: one tray app with a page per tool. It reads the game client's own network traffic and the screen, then draws click-through overlays over the game: a radar that marks nearby cubes on the minimap with their distance and direction, markers on the world map, a ping meter with lag alerts, skill cooldown and buff icons, and a panel for the pet souls you're farming. It never sends or changes packets, touches the game's memory or automates input.
+- Read-only packet capture with Scapy and Npcap, decoding the game's LZ4-compressed messages; works through ping boosters like ExitLag via loopback capture
+- Minimap radar with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game
+- Ping meter with the in-game ping, the network round-trip and the last minute's maximum, and lag alerts that say whether a spike came from the PC, the network or the server
+- Skill cooldown and buff icons you place anywhere over the game, with key capture and snapping into rows; skill names and icons from NC's public character pages
+- Pet panel with the souls the pet you're farming needs for its next level, and which monsters in view drop pet souls
+- World map markers with a category filter, and a bar at the minimap with Stop, the ping, the weather from Open-Meteo and a button for the NotMeter DPS meter
+- Tray app with a setup checklist, Start with Windows, a global Play / Stop hotkey and self-updates checked by size and SHA-256; overlays hidden from screen capture
 
 **Aion2 Crafting Calculator**: A Windows desktop app for AION 2 that works out what a craft really costs and whether it's worth doing. Pick a recipe and it lays out the whole combo chain tier by tier, using your in-game success chance and the 25% combo chance to work out how many crafts each tier needs. Press F10 on the in-game market and it reads the listed prices straight from the screen, then shows the total cost and the profit after the 10% market tax.
 - Every craftable weapon, armour and accessory recipe with its full combo chain, with search that matches words in any order
@@ -197,11 +208,14 @@ Existing images that can be reused (copy into `src/assets/projects/<slug>/`, opt
 - Engine Optimizer: UML diagram (currently a PDF; export an image if wanted)
 
 In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at least one image:
-- From repo READMEs: PowerTray (3), Simple Video Editor, iLvl Upgrade Odds, TL Marketplace Trackers,
+- From repo READMEs: Simple Video Editor, iLvl Upgrade Odds, TL Marketplace Trackers,
   Match Tracker (2), Clipper for YouTube (2), Aion2 Crafting Calculator
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
   longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)
+- Provided by the owner: PowerTray (3: Home page, PiP composite on a white canvas on purpose, tray menu),
+  Daeva Kit (7 from `../Cube Finder/screenshots`, all sample data; the world map, DPS, pets, spells,
+  ping, settings and updates pages are left out)
 - Plots: AI Game Recommender, MAGIC Gamma Classifier, LoL Win Predictor (listed above)
 - TNL API Scrapper: no image by owner decision (the tracker site needs a login to return data)
 
