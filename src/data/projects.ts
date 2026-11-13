@@ -1,4 +1,7 @@
 import type { Project } from '../types/project.ts'
+import agentColors from '../assets/projects/agent-progress-mod/agent-colors.webp'
+import agentBand from '../assets/projects/agent-progress-mod/progress-band.webp'
+import agentPanel from '../assets/projects/agent-progress-mod/team-panel-running.webp'
 import aiBreakdown from '../assets/projects/ai-game-recommender/breakdown-rift.webp'
 import aiWeights from '../assets/projects/ai-game-recommender/model-weights.webp'
 import aion2Calculator from '../assets/projects/aion2-crafting-calculator/calculator.webp'
@@ -240,6 +243,48 @@ export const projects: Project[] = [
         height: 72,
         alt: "Clipper for YouTube in Firefox's add-ons manager, switched on",
         caption: "Installed in Firefox's add-ons manager",
+      },
+    ],
+  },
+  {
+    slug: 'agent-progress-mod',
+    name: 'Agent Progress Mod',
+    category: 'personal',
+    summary:
+      'Claude Code mod that shows a progress band and a team panel while the main session delegates work to subagents.',
+    overview:
+      'A Claude Code mod (team-progress) that shows what a session and its subagents are doing while the main session plans a task and delegates parts of it. A band above the prompt shows the current task and its progress, and a team panel lists every subagent with its model, steps, tokens, estimated cost and time. It installs with one command and needs no setup.',
+    tech: ['TypeScript', 'JSX', 'Claude Code plugins'],
+    repoUrl: 'https://github.com/Oralino/agent-progress-mod',
+    features: [
+      'Progress band above the prompt: the task title, its tier if the session sizes tasks, the phase (Triage, Plan, Build, Review, QA, Commit), a progress bar and tasks done out of planned',
+      "Team panel (/team or the band's Team button) with the running, finished and planned subagents of the current task, plus the main session's own tokens and cost; it opens by itself once per task when work is first delegated",
+      "Two reporting tools: progress for the main session and step for subagents; the mod adds the instructions to the system prompt and to each subagent's brief, so nobody has to configure it",
+      "Model, tokens, cost and time come from Claude Code's own events, so every subagent shows up even if it reports nothing; costs are estimates from a built-in price table",
+      'Works with any agent type, built-in, custom or from a plugin; each type gets its own color that it keeps across runs and sessions',
+      'Reports ride along with another tool call instead of taking a turn of their own, to keep the token cost low; a failure inside the mod never blocks an agent or tool call',
+    ],
+    images: [
+      {
+        src: agentPanel,
+        width: 714,
+        height: 320,
+        alt: 'The Team panel for a Hard task in Review: the lead on Opus with its tokens and cost, and two running agents, a code-reviewer on Sonnet and a qa-checker on Haiku at 3 of 5 steps, each with tokens, cost and time',
+        caption: 'The team panel while two agents run',
+      },
+      {
+        src: agentBand,
+        width: 962,
+        height: 56,
+        alt: 'The progress band above the prompt: task title, Hard tier, a half-filled progress bar, Review 2/4, 50%, a Team ×2 button and a close button',
+        caption: 'The progress band above the prompt',
+      },
+      {
+        src: agentColors,
+        width: 713,
+        height: 560,
+        alt: 'The Team panel with four finished agents: two Plan runs in the same yellow, general-purpose in cyan and claude-code-guide in green',
+        caption: 'Each agent type keeps its own color across runs',
       },
     ],
   },

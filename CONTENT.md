@@ -42,6 +42,7 @@ Source folders live in `C:\Documents\Script\`.
 | Clipper for YouTube | (GitHub only) | https://github.com/Oralino/youtube-clipper | Firefox and Chrome extension that clips part of a YouTube video and saves it as an MP4 |
 | Aion2 Crafting Calculator | `../Aion2 Crafting Calculator` | https://github.com/Oralino/aion2-crafting-calculator | Windows desktop app for AION 2 that works out a craft's real cost and profit, reading market prices from the screen |
 | Daeva Kit | `../Cube Finder` | https://github.com/Oralino/daeva-kit (private, not linked) | Windows toolkit for AION 2 that reads the game's own network traffic for a minimap radar, ping meter, skill cooldowns and pet tracking |
+| Agent Progress Mod | `../Agent Progress Mod` | https://github.com/Oralino/agent-progress-mod | Claude Code mod that shows a progress band and a team panel while the main session delegates work to subagents |
 
 Not yet on GitHub (confirm before including): `Daily Job Search Agent`, `job_search_agent`.
 
@@ -114,6 +115,14 @@ where there was no README. Figures are the projects' own printed results. Mirror
 - Records the playing video with MediaRecorder at a bitrate matched to its resolution, so the clip keeps the quality you're watching
 - Converts to MP4 in the background with Mediabunny when the browser can't record MP4 directly
 - Firefox and Chrome builds from one Manifest V3 codebase, with no data collection; unit-tested with Vitest
+
+**Agent Progress Mod**: A Claude Code mod (`team-progress`) that shows what a session and its subagents are doing while the main session plans a task and delegates parts of it. A band above the prompt shows the current task and its progress, and a team panel lists every subagent with its model, steps, tokens, estimated cost and time. It installs with one command and needs no setup.
+- Progress band above the prompt: the task title, its tier if the session sizes tasks, the phase (Triage, Plan, Build, Review, QA, Commit), a progress bar and tasks done out of planned
+- Team panel (`/team` or the band's Team button) with the running, finished and planned subagents of the current task, plus the main session's own tokens and cost; it opens by itself once per task when work is first delegated
+- Two reporting tools: `progress` for the main session and `step` for subagents; the mod adds the instructions to the system prompt and to each subagent's brief, so nobody has to configure it
+- Model, tokens, cost and time come from Claude Code's own events, so every subagent shows up even if it reports nothing; costs are estimates from a built-in price table
+- Works with any agent type, built-in, custom or from a plugin; each type gets its own color that it keeps across runs and sessions
+- Reports ride along with another tool call instead of taking a turn of their own, to keep the token cost low; a failure inside the mod never blocks an agent or tool call
 
 **TL Stat Calculator**: A desktop calculator for Throne and Liberty's combat formulas. Each tab covers one mechanic, such as evasion, critical hits, heavy attacks, skill damage or crowd control, and turns your stats and the enemy's into an actual percentage chance or damage number. A trade-off tab compares two gear loadouts to show which one saves more HP against critical hits.
 - Evasion, critical hit and heavy attack chance from your stats against the enemy's
@@ -209,7 +218,8 @@ Existing images that can be reused (copy into `src/assets/projects/<slug>/`, opt
 
 In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at least one image:
 - From repo READMEs: Simple Video Editor, iLvl Upgrade Odds, TL Marketplace Trackers,
-  Match Tracker (2), Clipper for YouTube (2), Aion2 Crafting Calculator
+  Match Tracker (2), Clipper for YouTube (2), Aion2 Crafting Calculator, Agent Progress Mod (3: band,
+  panel with agents running, agent colors)
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
   longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)

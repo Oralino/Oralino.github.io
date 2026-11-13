@@ -19,6 +19,7 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] Agent Progress Mod added (public repo, no releases so no Download button; 3 README screenshots)
 - [x] Featured projects are now Daeva Kit, PowerTray and Clipper for YouTube
 - [x] PowerTray updated for its redesign and picture-in-picture (new copy, owner's screenshots); its repo
       is now private, so the repo and release links are gone. Daeva Kit added (private, no links,
