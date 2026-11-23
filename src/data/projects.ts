@@ -32,6 +32,7 @@ import pokedexNotFound from '../assets/projects/pokedex/not-found.webp'
 import pokedexResult from '../assets/projects/pokedex/search-result.webp'
 import powertrayMain from '../assets/projects/powertray/main-window.webp'
 import powertrayPip from '../assets/projects/powertray/pip-window.webp'
+import powertrayPipInGame from '../assets/projects/powertray/pip-in-game.webp'
 import powertrayTray from '../assets/projects/powertray/tray-menu.webp'
 import powertrayGames from '../assets/projects/powertray/games-page.webp'
 import powertrayLaunchers from '../assets/projects/powertray/launchers-page.webp'
@@ -232,6 +233,14 @@ export const projects: Project[] = [
         height: 765,
         alt: "Updates page: You're up to date on version 1.5.0, with switches to check for updates when PowerTray starts and to install them automatically when no PiP is open",
         caption: 'Updates page',
+      },
+      {
+        src: powertrayPipInGame,
+        width: 2000,
+        height: 836,
+        alt: 'AION 2 running full screen while Honkai: Star Rail plays live in a picture-in-picture window at the bottom right',
+        caption:
+          'Playing one game while another runs in the picture-in-picture window',
       },
     ],
   },

@@ -19,6 +19,7 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] PowerTray: owner's in-game PiP shot (a game in PiP over AION 2) added as the last, full-width image
 - [x] New screenshots for PowerTray v1.5.0 (7, Open windows page left out: it shows the owner's
       real windows) and Daeva Kit v2.0.1 (13: app pages plus in-game overlays; real city on the Weather
       page kept by owner decision); both stacks now list PyQt6 instead of Tkinter/CustomTkinter

@@ -223,8 +223,9 @@ In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
   longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)
-- Provided by the owner: PowerTray (7: Home, Games, Launchers, Settings and Updates pages and the tray
-  menu from v1.5.0, plus the PiP composite on a white canvas on purpose; the Open windows page is left
+- Provided by the owner: PowerTray (8: Home, Games, Launchers, Settings and Updates pages and the tray
+  menu from v1.5.0, the PiP composite on a white canvas on purpose, and an in-game shot of a PiP over
+  AION 2; the Open windows page is left
   out because it shows the owner's real windows), Daeva Kit (13: the v2.0.1 app pages from
   `../Cube Finder/brain/design/screenshots` except DPS, plus four in-game overlays from
   `../Cube Finder/screenshots`, sample data; the Weather page shows the owner's real city, kept by
