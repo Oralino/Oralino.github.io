@@ -19,6 +19,9 @@ Owner-only items are marked **(owner)**.
 
 ## Done
 
+- [x] New screenshots for PowerTray v1.5.0 (7, Open windows page left out: it shows the owner's
+      real windows) and Daeva Kit v2.0.1 (13: app pages plus in-game overlays; real city on the Weather
+      page kept by owner decision); both stacks now list PyQt6 instead of Tkinter/CustomTkinter
 - [x] Agent Progress Mod added (public repo, no releases so no Download button; 3 README screenshots)
 - [x] Featured projects are now Daeva Kit, PowerTray and Clipper for YouTube
 - [x] PowerTray updated for its redesign and picture-in-picture (new copy, owner's screenshots); its repo

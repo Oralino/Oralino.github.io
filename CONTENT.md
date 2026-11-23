@@ -88,12 +88,12 @@ where there was no README. Figures are the projects' own printed results. Mirror
 - Picture-in-picture for any game, launcher or open window: a live DWM thumbnail of the game, which runs on a virtual monitor from the bundled Virtual Display Driver
 - Click into the PiP to play: the mouse and keyboard go to the game, and holding Alt gives the cursor back
 - Switches a fullscreen game to windowed for the PiP and back afterwards, and remembers each program's PiP size
-- Sidebar window with Home, Games, Launchers and Open windows pages; drag in .exe files or shortcuts, which keep their launch arguments
+- Sidebar window with Home, Games, Launchers, Open windows, Updates and Settings pages; drag in .exe files or shortcuts, which keep their launch arguments
 - Tray menu with the games' extracted icons, Launch in PiP and Steam Library, plus self-updates checked by size and SHA-256
 
 **Daeva Kit**: A Windows toolkit for AION 2: one tray app with a page per tool. It reads the game client's own network traffic and the screen, then draws click-through overlays over the game: a radar that marks nearby cubes on the minimap with their distance and direction, markers on the world map, a ping meter with lag alerts, skill cooldown and buff icons, and a panel for the pet souls you're farming. It never sends or changes packets, touches the game's memory or automates input.
 - Read-only packet capture with Scapy and Npcap, decoding the game's LZ4-compressed messages; works through ping boosters like ExitLag via loopback capture
-- Minimap radar with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game
+- Minimap radar for cubes and enemy kisks with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game
 - Ping meter with the in-game ping, the network round-trip and the last minute's maximum, and lag alerts that say whether a spike came from the PC, the network or the server
 - Skill cooldown and buff icons you place anywhere over the game, with key capture and snapping into rows; skill names and icons from NC's public character pages
 - Pet panel with the souls the pet you're farming needs for its next level, and which monsters in view drop pet souls
@@ -223,9 +223,12 @@ In use (WebP in `src/assets/projects/<slug>/`). Every project detail page has at
 - Captured by running the project: Steam Backlog Manager (3, local run at 1440×900), Parallel Name Sort
   (console window), Engine Optimizer (real window with a **sample** profile; the MongoDB cluster no
   longer resolves), Pokédex (search result and error state), TL Stat Calculator (Def vs Crit Res tab)
-- Provided by the owner: PowerTray (3: Home page, PiP composite on a white canvas on purpose, tray menu),
-  Daeva Kit (7 from `../Cube Finder/screenshots`, all sample data; the world map, DPS, pets, spells,
-  ping, settings and updates pages are left out)
+- Provided by the owner: PowerTray (7: Home, Games, Launchers, Settings and Updates pages and the tray
+  menu from v1.5.0, plus the PiP composite on a white canvas on purpose; the Open windows page is left
+  out because it shows the owner's real windows), Daeva Kit (13: the v2.0.1 app pages from
+  `../Cube Finder/brain/design/screenshots` except DPS, plus four in-game overlays from
+  `../Cube Finder/screenshots`, sample data; the Weather page shows the owner's real city, kept by
+  owner decision on 2026-11-22)
 - Plots: AI Game Recommender, MAGIC Gamma Classifier, LoL Win Predictor (listed above)
 - TNL API Scrapper: no image by owner decision (the tracker site needs a login to return data)
 

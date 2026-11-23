@@ -14,6 +14,12 @@ import daevaSpellIcons from '../assets/projects/daeva-kit/spell-icons.webp'
 import daevaPetsPanel from '../assets/projects/daeva-kit/pets-panel.webp'
 import daevaRadar from '../assets/projects/daeva-kit/radar-page.webp'
 import daevaWeather from '../assets/projects/daeva-kit/weather-page.webp'
+import daevaSpellsPage from '../assets/projects/daeva-kit/spells-page.webp'
+import daevaPingPage from '../assets/projects/daeva-kit/ping-page.webp'
+import daevaPetsPage from '../assets/projects/daeva-kit/pets-page.webp'
+import daevaWorldMap from '../assets/projects/daeva-kit/world-map-page.webp'
+import daevaSettings from '../assets/projects/daeva-kit/settings-page.webp'
+import daevaUpdates from '../assets/projects/daeva-kit/updates-page.webp'
 import engineMain from '../assets/projects/engine-optimizer/main-window.webp'
 import ilvlDashboard from '../assets/projects/ilvl-upgrade-odds/dashboard.webp'
 import lolRoc from '../assets/projects/lol-win-predictor/roc-comparison.webp'
@@ -27,6 +33,10 @@ import pokedexResult from '../assets/projects/pokedex/search-result.webp'
 import powertrayMain from '../assets/projects/powertray/main-window.webp'
 import powertrayPip from '../assets/projects/powertray/pip-window.webp'
 import powertrayTray from '../assets/projects/powertray/tray-menu.webp'
+import powertrayGames from '../assets/projects/powertray/games-page.webp'
+import powertrayLaunchers from '../assets/projects/powertray/launchers-page.webp'
+import powertraySettings from '../assets/projects/powertray/settings-page.webp'
+import powertrayUpdates from '../assets/projects/powertray/updates-page.webp'
 import videoEditorMain from '../assets/projects/simple-video-editor/main-window.webp'
 import steamAdd from '../assets/projects/steam-backlog-manager/add-game.webp'
 import steamDetails from '../assets/projects/steam-backlog-manager/game-details.webp'
@@ -47,19 +57,11 @@ export const projects: Project[] = [
       "Windows toolkit for AION 2 that reads the game's own network traffic for a minimap radar, ping meter, skill cooldowns and pet tracking.",
     overview:
       "A Windows toolkit for AION 2: one tray app with a page per tool. It reads the game client's own network traffic and the screen, then draws click-through overlays over the game: a radar that marks nearby cubes on the minimap with their distance and direction, markers on the world map, a ping meter with lag alerts, skill cooldown and buff icons, and a panel for the pet souls you're farming. It never sends or changes packets, touches the game's memory or automates input.",
-    tech: [
-      'Python',
-      'Scapy',
-      'Npcap',
-      'NumPy',
-      'mss',
-      'Tkinter',
-      'PyInstaller',
-    ],
+    tech: ['Python', 'Scapy', 'Npcap', 'NumPy', 'mss', 'PyQt6', 'PyInstaller'],
     featured: true,
     features: [
       "Read-only packet capture with Scapy and Npcap, decoding the game's LZ4-compressed messages; works through ping boosters like ExitLag via loopback capture",
-      'Minimap radar with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game',
+      'Minimap radar for cubes and enemy kisks with distance rings, a line to the nearest cube and toasts; finds the minimap on screen by itself and learns new spawn types from clips you mark in game',
       "Ping meter with the in-game ping, the network round-trip and the last minute's maximum, and lag alerts that say whether a spike came from the PC, the network or the server",
       "Skill cooldown and buff icons you place anywhere over the game, with key capture and snapping into rows; skill names and icons from NC's public character pages",
       "Pet panel with the souls the pet you're farming needs for its next level, and which monsters in view drop pet souls",
@@ -71,7 +73,7 @@ export const projects: Project[] = [
         src: daevaHome,
         width: 900,
         height: 640,
-        alt: "Daeva Kit's Home page: a sidebar with Radar, Pets, Spells, World map, DPS meter, Ping meter and Weather; a green Play button; and a checklist with Npcap installed, Administrator yes, minimap set up and game found",
+        alt: "Daeva Kit's Home page: a sidebar with Radar, Pets, Spells, World map, DPS meter, Ping meter and Weather; Ready to play with Play and Quit buttons; and a checklist with Npcap installed, Administrator yes, minimap set up and the game running",
         caption: 'Home page with the before-playing checklist',
       },
       {
@@ -107,15 +109,57 @@ export const projects: Project[] = [
         src: daevaRadar,
         width: 900,
         height: 640,
-        alt: 'Radar page: the on/off switch and overlay options for radar style (disc or dots), distance rings, distance labels, the no-position hint and a toast for every new cube',
+        alt: 'Radar page: the switch for cubes and enemy kisks on the minimap, disc or dots style, distance rings every 25 m, distance labels, the no-position hint and a toast for every new cube',
         caption: 'Radar settings',
+      },
+      {
+        src: daevaSpellsPage,
+        width: 900,
+        height: 640,
+        alt: 'Spells page: the switch for skill cooldown and buff icons, Put back and Unlock buttons for placing them, when to show them (always, in combat or with the bar), only in game, opacity, faded opacity and how long they stay up after a fight',
+        caption: 'Spells settings',
+      },
+      {
+        src: daevaPingPage,
+        width: 900,
+        height: 640,
+        alt: 'Ping meter page: the on/off switch, showing it on the Stop bar or in a panel of its own, an alert at 100 ms, a switch for the folded Stop bar and a Put back button for the panel',
+        caption: 'Ping meter settings',
+      },
+      {
+        src: daevaPetsPage,
+        width: 900,
+        height: 640,
+        alt: 'Pets page: the switch for the pet soul tracker and an option to hide finished pets from the panel',
+        caption: 'Pets settings',
+      },
+      {
+        src: daevaWorldMap,
+        width: 900,
+        height: 640,
+        alt: 'World map page: the switch for resource, boss and other markers on the open world map, opened with M',
+        caption: 'World map settings',
       },
       {
         src: daevaWeather,
         width: 900,
         height: 640,
-        alt: 'Weather page: the on/off switch, a sample place of Seoul, South Korea with Find my city and Change buttons, Celsius or Fahrenheit, and a switch to show it on the folded Stop bar',
-        caption: 'Weather settings (sample place)',
+        alt: 'Weather page: the on/off switch, the city with Find my city and Change buttons, Celsius or Fahrenheit, a switch to show it on the folded Stop bar, and credits for Open-Meteo and ipinfo.io',
+        caption: 'Weather settings',
+      },
+      {
+        src: daevaSettings,
+        width: 900,
+        height: 640,
+        alt: 'Settings page: Start with Windows, a Play / Stop hotkey, showing on stream and recordings, showing the window on alt-tab, putting the Stop bar back at the minimap and opening the data folder',
+        caption: 'General settings',
+      },
+      {
+        src: daevaUpdates,
+        width: 900,
+        height: 640,
+        alt: "Updates page: You're up to date on version 2.0.1, switches to check for updates and install them when the app starts, and a Choose version button",
+        caption: 'Updates page',
       },
     ],
   },
@@ -127,29 +171,22 @@ export const projects: Project[] = [
       'Windows tray utility that switches to High Performance while games run and plays any game in a floating picture-in-picture window.',
     overview:
       "A Windows utility that sits in the system tray and switches Windows to the High Performance power plan while the games you choose are running, then back to Balanced when they close. It can also play any game, launcher or open window as a floating picture-in-picture player, like a browser's pop-out video: the game keeps running at full resolution on an invisible virtual monitor while a small always-on-top window shows it live and passes your mouse and keyboard through.",
-    tech: [
-      'Python',
-      'CustomTkinter',
-      'PyQt6',
-      'pywin32',
-      'psutil',
-      'PyInstaller',
-    ],
+    tech: ['Python', 'PyQt6', 'pywin32', 'psutil', 'PyInstaller'],
     featured: true,
     features: [
       'Watches the configured game processes with psutil and switches power plans through Windows powercfg',
       'Picture-in-picture for any game, launcher or open window: a live DWM thumbnail of the game, which runs on a virtual monitor from the bundled Virtual Display Driver',
       'Click into the PiP to play: the mouse and keyboard go to the game, and holding Alt gives the cursor back',
       "Switches a fullscreen game to windowed for the PiP and back afterwards, and remembers each program's PiP size",
-      'Sidebar window with Home, Games, Launchers and Open windows pages; drag in .exe files or shortcuts, which keep their launch arguments',
+      'Sidebar window with Home, Games, Launchers, Open windows, Updates and Settings pages; drag in .exe files or shortcuts, which keep their launch arguments',
       "Tray menu with the games' extracted icons, Launch in PiP and Steam Library, plus self-updates checked by size and SHA-256",
     ],
     images: [
       {
         src: powertrayMain,
         width: 1120,
-        height: 807,
-        alt: "PowerTray's Home page: a sidebar with Home, Games, Launchers, Open windows, Updates and Settings; the last played launcher with Launch and Launch PiP buttons; Balanced when no game is running and High performance when one is; and a PiP checklist with the Virtual Display Driver installed and the virtual monitor on at 3440x1440",
+        height: 765,
+        alt: "PowerTray's Home page: a sidebar with Home, Games, Launchers, Open windows, Updates and Settings; the Balanced power plan with no game running; AION2 as the last played game with Launch and Launch PiP buttons; and a PiP checklist with the Virtual Display Driver installed and the virtual monitor on at 3440x1440",
         caption:
           'Home page with the last played game, power plans and PiP checklist',
       },
@@ -162,11 +199,39 @@ export const projects: Project[] = [
           'A game playing in the picture-in-picture window, in front of other windows',
       },
       {
+        src: powertrayGames,
+        width: 1120,
+        height: 765,
+        alt: 'Games page with seven games, among them StarRail, Deadlock, Palworld, Zenless Zone Zero, AION2 and Wuthering Waves, each with Launch, PiP and more buttons, and an Add game button that also takes dropped .exe or .lnk files',
+        caption: 'Games that switch to High Performance while they run',
+      },
+      {
+        src: powertrayLaunchers,
+        width: 1120,
+        height: 765,
+        alt: 'Launchers page with HoYoPlay, Wuthering Waves, Black Desert, Deadlock Mod Manager and NIKKE launchers, each with Launch and PiP buttons',
+        caption: 'Launchers start without switching the power plan',
+      },
+      {
         src: powertrayTray,
-        width: 440,
-        height: 675,
+        width: 450,
+        height: 794,
         alt: 'Tray menu listing games and launchers with their icons, then Launch in PiP and PiP a running window submenus, Steam Library, Show Window and Exit',
         caption: 'Tray menu with Launch in PiP',
+      },
+      {
+        src: powertraySettings,
+        width: 1120,
+        height: 765,
+        alt: 'Settings page: Run at Windows Startup, Virtual Monitor on Startup, the virtual monitor size matched to the main monitor at 3440x1440, and the PiP minimize button as a taskbar button or collapse',
+        caption: 'Settings, including the virtual monitor size',
+      },
+      {
+        src: powertrayUpdates,
+        width: 1120,
+        height: 765,
+        alt: "Updates page: You're up to date on version 1.5.0, with switches to check for updates when PowerTray starts and to install them automatically when no PiP is open",
+        caption: 'Updates page',
       },
     ],
   },
